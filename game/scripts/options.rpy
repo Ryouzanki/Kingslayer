@@ -92,28 +92,29 @@ init -1 python hide:
     #style.window.background = Frame("UI/rect.png",15 , 15) # ancien 6,6
     style.window.background = "medias/interface/textbox.png" # ancien 6,6
     style.say_who_window.xalign = 0.1
-    style.say_who_window.yalign = 0.9
+    style.say_who_window.yalign = 0.1
     style.say_who_window.background=None
+    
     ## Margin is space surrounding the window, where the background
     ## is not drawn.
 
-    style.window.left_margin = 0
-    style.window.right_margin = 0
-    style.window.top_margin = 0
-    style.window.bottom_margin = 120
+    style.window.left_margin = 0                 # ok
+    style.window.right_margin = 20               # ok
+    style.window.top_margin = 0                 # ok
+    style.window.bottom_margin = 0           # o
 
     ## Padding is space inside the window, where the background is
     ## drawn.
 
-    style.window.left_padding = 15
-    style.window.right_padding = 14
-    style.window.top_padding = 10
-    style.window.bottom_padding = 10
+    style.window.left_padding = 50                # o
+    style.window.right_padding = 0              #
+    style.window.top_padding = 100                #
+    style.window.bottom_padding = 0          #
 
     ## This is the minimum height of the window, including the margins
     ## and padding.
 
-    # style.window.yminimum = 250
+    style.window.yminimum = 187
     
 
 

@@ -3,8 +3,8 @@
 
     
 # Avocat du barreau Elusia
-define e = Character('Elusia', color="#FF69B4",show_two_window=True)
+define e = Character(what_color="#009900", window_background="medias/interface/textbox elusia.png")
 
 # Procureur Ryouzanki
-$ rn = 'Homme inconnu'
-$ r = DynamicCharacter("rn", color="#4169E1")
+define r = Character(what_color="#EE0000", window_background="medias/interface/textbox ryouzanki.png")
+

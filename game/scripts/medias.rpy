@@ -5,11 +5,18 @@
 ## Elusia Bravewill
 
 image elusia objection = "medias/sprites/elusia objection.png"
+image elusia explaining = "medias/sprites/elusia explaining.png"
+
+## Ryouzanki Zeldar
+
+image ryouzanki objection = "medias/sprites/ryouzanki objection.png"
+image ryouzanki explaining = "medias/sprites/ryouzanki explaining.png"
 
 ### Background
 
 # Courtroom
-image courtroom left = "medias/backgrounds/courtroom left.png"
+image courtroom_left = "medias/backgrounds/courtroom left.png"
+image courtroom_right = "medias/backgrounds/courtroom right.png"
 
 ## Fonds unis
 image black = "#000000"
