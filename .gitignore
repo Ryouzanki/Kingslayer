@@ -1,0 +1,6 @@
+*.rpyb
+*.rpyc
+*~
+*.rpy.bak
+ressources/*
+*.save
