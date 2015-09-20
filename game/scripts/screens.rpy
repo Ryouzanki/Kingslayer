@@ -1,6 +1,14 @@
-﻿#### Ce fichier gère l' UI de base ####
+﻿#### Ce fichier gère l' UI   ####
 
 
+screen diff_imagemap:
+    imagemap:
+        auto "medias/interface/diff_%s.png"
+        
+        hotspot (100, 366, 400, 600) action Return("easy")
+        hotspot (400, 366, 700, 600) action Return("hard")
+
+        
 screen say:
 
     # Valeurs par défaut de 'side_image' et 'two_window'
@@ -176,11 +184,11 @@ screen main_menu:
         ground "medias/interface/mm_ground.png"
         idle "medias/interface/mm_idle.png"
         hover "medias/interface/mm_hover.png"
-        hotspot (5, 420, 170, 600) action Start()
-        hotspot (175, 420, 345, 600) action ShowMenu("load")
-        hotspot (350, 420, 525, 600) action ShowMenu("preferences")
-        hotspot (530, 420, 658, 600) action ShowMenu("gallery")
-        hotspot (659, 420, 780, 600) action Quit(confirm=False)
+        hotspot (5, 400, 170, 600) action Start()
+        hotspot (175, 400, 345, 600) action ShowMenu("load")
+        hotspot (350, 400, 525, 600) action ShowMenu("preferences")
+        hotspot (530, 400, 658, 600) action Null()
+        hotspot (659, 400, 780, 600) action Quit(confirm=False)
 
 init -2 python:
 
