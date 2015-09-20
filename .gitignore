@@ -4,3 +4,9 @@
 *.rpy.bak
 ressources/*
 *.save
+*.db
+log.txt
+errors.txt
+traceback.txt
+game/saves/*
+tmp/*
