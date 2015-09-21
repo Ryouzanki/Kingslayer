@@ -182,7 +182,7 @@ init -1 python hide:
 
     ## Musique jouée lorsque le joueur se trouve dans le menu principal.
 
-    # config.main_menu_music = "main_menu_theme.ogg"
+    # config.main_menu_music = "medias/musics/main menu.mp3"
 
 
     #########################################
