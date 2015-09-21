@@ -181,13 +181,11 @@ screen main_menu:
     tag menu
     
     imagemap:
-        ground "medias/interface/mm_ground.png"
-        idle "medias/interface/mm_idle.png"
-        hover "medias/interface/mm_hover.png"
+        auto "medias/interface/mm_%s.png"
         hotspot (5, 400, 170, 600) action Start()
         hotspot (175, 400, 345, 600) action ShowMenu("load")
         hotspot (350, 400, 525, 600) action ShowMenu("preferences")
-        hotspot (530, 400, 658, 600) action Null()
+        hotspot (530, 400, 658, 600) action NullAction()
         hotspot (659, 400, 780, 600) action Quit(confirm=False)
 
 init -2 python:
