@@ -9,6 +9,16 @@ screen diff_imagemap:
         hotspot (400, 366, 700, 600) action Return("hard")
 
         
+screen button:
+    #grid 4 1:
+         hbox:
+             $ ui.imagebutton("medias/interface/menu.png", "medias/interface/menu.png", clicked=ShowMenu("preferences"))
+         #vbox:
+             $ ui.imagebutton("medias/interface/proof.png", "medias/interface/proof.png", clicked=ShowMenu("proof1"))
+         #vbox:
+         
+         
+         
 screen say:
 
     # Valeurs par défaut de 'side_image' et 'two_window'
@@ -214,13 +224,12 @@ screen navigation:
 
         has vbox
 
-        textbutton _("Return") action Return()
-        textbutton _("Preferences") action ShowMenu("preferences")
-        textbutton _("Save Game") action ShowMenu("save")
-        textbutton _("Load Game") action ShowMenu("load")
-        textbutton _("Main Menu") action MainMenu()
-        textbutton _("Help") action Help()
-        textbutton _("Quit") action Quit()
+        textbutton _("Retour") action Return()
+        textbutton _("Option") action ShowMenu("preferences")
+        textbutton _("Sauvegarder partie") action ShowMenu("save")
+        textbutton _("Charger partie") action ShowMenu("load")
+        textbutton _("Menu principal") action MainMenu()
+        textbutton _("Quitter") action Quit()
 
 init -2 python:
     style.gm_nav_button.size_group = "gm_nav"
@@ -518,11 +527,6 @@ screen quick_menu:
 
         textbutton _("Back") action Rollback()
         textbutton _("Save") action ShowMenu('save')
-        textbutton _("Q.Save") action QuickSave()
-        textbutton _("Q.Load") action QuickLoad()
-        textbutton _("Skip") action Skip()
-        textbutton _("F.Skip") action Skip(fast=True, confirm=True)
-        textbutton _("Auto") action Preference("auto-forward", "toggle")
         textbutton _("Prefs") action ShowMenu('preferences')
 
 init -2 python:
