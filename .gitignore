@@ -2,7 +2,6 @@
 *.rpyc
 *~
 *.rpy.bak
-ressources/*
 *.save
 *.db
 log.txt
