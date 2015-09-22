@@ -1,3 +1,5 @@
+### UI de la gallerie de preuve ###
+
 init python:
 
     proof1 = Gallery()
