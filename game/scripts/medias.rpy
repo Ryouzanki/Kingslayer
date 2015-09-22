@@ -10,6 +10,27 @@ image elusia explaining = "medias/sprites/elusia explaining.png"
 image ryouzanki objection = "medias/sprites/ryouzanki objection.png"
 image ryouzanki explaining = "medias/sprites/ryouzanki explaining.png"
 
+## Alice Drezall
+image alice normal = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice normal.png")
+image alice sad = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice sad.png")
+image alice angry = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice angry.png")
+image alice happy = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice happy.png")
+image alice geez = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice geez.png")
+image alice satisfied = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice satisfied.png")
+
+
 ### Proof
 
 ## Testing area
@@ -30,6 +51,8 @@ image diff_sel = "medias/interface/diff_idle.png"
 # Courtroom
 image courtroom_left = "medias/backgrounds/courtroom left.png"
 image courtroom_right = "medias/backgrounds/courtroom right.png"
+image witness_stand = "medias/backgrounds/witness stand.png"
+image witness_bar = "medias/backgrounds/witness stand2.png"
 
 ## Fonds unis
 image black = "#000000"
