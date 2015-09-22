@@ -10,15 +10,23 @@ screen diff_imagemap:
 
         
 screen button:
-    #grid 4 1:
-         hbox:
-             $ ui.imagebutton("medias/interface/menu.png", "medias/interface/menu.png", clicked=ShowMenu("preferences"))
-         #vbox:
-             $ ui.imagebutton("medias/interface/proof.png", "medias/interface/proof.png", clicked=ShowMenu("proof1"))
-         #vbox:
-         
-         
-         
+    
+    $ ui.imagebutton("medias/interface/menu.png", "medias/interface/menu.png", xalign = 1.0, clicked=ShowMenu("preferences"))
+    $ ui.imagebutton("medias/interface/proof.png", "medias/interface/proof.png", clicked=ShowMenu("proof1"))
+
+screen testimony_scre:
+    
+    $ ui.imagebutton("medias/interface/objection.png", "medias/interface/objection.png", yalign = 0.5, clicked=[ShowMenu("proof_select")])
+
+screen proof_select:
+    
+    grid 3 1:
+        xalign 0.5
+        yalign 0.5
+        $ ui.imagebutton("medias/interface/knife.png", "medias/interface/knife.png",  clicked=[SetVariable("try_objection",1),Return()])
+        $ ui.imagebutton("medias/interface/spoon.png", "medias/interface/spoon.png",  clicked=[SetVariable("try_objection",2),Return()])
+        $ ui.imagebutton("medias/interface/gun.png", "medias/interface/gun.png",  clicked=[SetVariable("try_objection",3),Return()])
+            
 screen say:
 
     # Valeurs par défaut de 'side_image' et 'two_window'
