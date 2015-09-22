@@ -50,9 +50,11 @@ label start:
         $ difficulty = 2
         e "Misère... Il semblerait que le monde soit contre nous..."
 
+    $ gun_seen = False
     $ inf = 50
     stop music fadeout 1.0
     show black with dissolve
+    show screen button
     
 
     
@@ -95,6 +97,11 @@ label test:
     r "Il t'en reste donc [inf] de tes 50..."
     voice "medias/voices/ryoutest.ogg"
     r "J'ai une voix, c'est trop cool !"
-    r "..."
-
+    r "Voyons les preuves..."
+    call screen proof1
+    r "Mmmh..."
+    r "Ajoutons une preuve..."
+    $ gun_seen = True
+    call screen proof1
+    
     return
