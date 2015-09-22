@@ -10,6 +10,16 @@ image elusia explaining = "medias/sprites/elusia explaining.png"
 image ryouzanki objection = "medias/sprites/ryouzanki objection.png"
 image ryouzanki explaining = "medias/sprites/ryouzanki explaining.png"
 
+### Proof
+
+## Testing area
+image knife = "medias/interface/knife.png"
+image knife1 = "medias/interface/knife1.png"
+image spoon = "medias/interface/spoon.png"
+image spoon1 = "medias/interface/spoon1.png"
+image gun = "medias/interface/gun.png"
+image gun1 = "medias/interface/gun1.png"
+
 ### Background
 
 # Menus
