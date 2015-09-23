@@ -31,9 +31,10 @@ label influence(modificateur):
     
 label game_over:  # TODO
     
-    show courtroom_right
-    show ryouzanki explaining
-    r "Game over"
+    scene courtroom_right
+    show ryouzanki explaining with fade
+    r "Tu as perdu tous tes points..."
+    r "Game over."
     $ renpy.full_restart()
     
 label start:
