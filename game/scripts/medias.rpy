@@ -1,14 +1,30 @@
 #### Dans ce fichier sont déclarés les variables contenant les musiques, les backgrounds et les sprites. ####
 
+
+
 ### Characters
 
 ## Elusia Bravewill
+
+# Sprites
 image elusia objection = "medias/sprites/elusia objection.png"
 image elusia explaining = "medias/sprites/elusia explaining.png"
+image bubble_obj_elu = "medias/interface/bubble_obj_elu.png"
+
+# Voice
+define elusia_obj = "medias/sounds/elusia object.mp3"
 
 ## Ryouzanki Zeldar
+
+# Sprites
 image ryouzanki objection = "medias/sprites/ryouzanki objection.png"
 image ryouzanki explaining = "medias/sprites/ryouzanki explaining.png"
+image bubble_obj_ryou = "medias/interface/bubble_obj_ryou.png"
+
+# Voice
+define ryouzanki_obj = "medias/sounds/ryouzanki object.mp3"
+
+
 
 ## Alice Drezall
 image alice normal = im.Composite((200, 520),
