@@ -15,17 +15,40 @@ screen button:
     $ ui.imagebutton("medias/interface/proof.png", "medias/interface/proof.png", clicked=ShowMenu("proof1"))
 
 screen testimony_scre:
-    
-    $ ui.imagebutton("medias/interface/objection.png", "medias/interface/objection.png", yalign = 0.5, clicked=[ShowMenu("proof_select")])
 
+    $ ui.imagebutton("medias/interface/objection.png", "medias/interface/objection.png", yalign = 0.5, clicked=[Jump("proof_selector")])
+    $ ui.imagebutton("medias/interface/press.png", "medias/interface/press.png", yalign = 0.5, xalign = 1.0, clicked=[Jump("press_test")])
+    
+label proof_selector:
+    
+    hide screen testimony_scre
+    call screen proof_select
+    
 screen proof_select:
     
     grid 3 1:
         xalign 0.5
         yalign 0.5
-        $ ui.imagebutton("medias/interface/knife.png", "medias/interface/knife.png",  clicked=[SetVariable("try_objection",1),Return()])
-        $ ui.imagebutton("medias/interface/spoon.png", "medias/interface/spoon.png",  clicked=[SetVariable("try_objection",2),Return()])
-        $ ui.imagebutton("medias/interface/gun.png", "medias/interface/gun.png",  clicked=[SetVariable("try_objection",3),Return()])
+        $ ui.imagebutton("medias/interface/knife.png", "medias/interface/knife.png",  clicked=[SetVariable("try_objection",1),Jump("aiguillage")])
+        $ ui.imagebutton("medias/interface/spoon.png", "medias/interface/spoon.png",  clicked=[SetVariable("try_objection",2),Jump("aiguillage")])
+        $ ui.imagebutton("medias/interface/gun.png", "medias/interface/gun.png",  clicked=[SetVariable("try_objection",3),Jump("aiguillage")])
+        
+label aiguillage:
+    
+    $ renpy.music.stop()
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_left
+    show elusia objection
+    
+    e "OBJECTION !"
+    
+    if (witness_statement == 1):
+        jump object_1_X
+    else:
+        jump object_2_X
+    
             
 screen say:
 
