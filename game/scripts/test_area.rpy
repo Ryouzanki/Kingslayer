@@ -2,6 +2,9 @@
 
 label test:
     
+    $ gun_seen = False
+    $ inf = 50
+    
     show courtroom_left:
         xalign 0.5
     show courtroom_right:

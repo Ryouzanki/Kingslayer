@@ -14,18 +14,19 @@ init python:
     proof1.condition("gun_seen")
     proof1.image("gun1")
     
-    
     proof1.transition = dissolve
 
 screen proof1:
 
     tag menu
-    add "white"
+    add "CG_thinking_anim"
 
     grid 4 1:
 
         xfill True
-        yfill True
+        
+        yalign 0.5
+        # yfill True
 
         add proof1.make_button("knife", "knife", xalign=0.5, yalign=0.5)
         add proof1.make_button("spoon", "spoon", xalign=0.5, yalign=0.5)

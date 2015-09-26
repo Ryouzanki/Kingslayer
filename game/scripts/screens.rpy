@@ -22,6 +22,12 @@ screen testimony_scre:
 label proof_selector:
     
     hide screen testimony_scre
+    
+    # trop kikoo ? :s
+    
+    #show CG_thinking
+    #show CG_elusia_thinking with moveinleft
+    
     call screen proof_select
     
 screen proof_select:
@@ -35,6 +41,8 @@ screen proof_select:
         
 label aiguillage:
     
+    hide CG_thinking
+    hide CG_elusia_thinking
     $ renpy.music.stop()
     show bubble_obj_elu
     play sound elusia_obj

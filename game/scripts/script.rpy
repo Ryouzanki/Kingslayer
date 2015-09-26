@@ -31,7 +31,7 @@ label influence(modificateur):
     
 label game_over:  # TODO
     
-    scene courtroom_right
+    scene courtroom_right with fade
     show ryouzanki explaining with fade
     r "Tu as perdu tous tes points..."
     r "Game over."
@@ -51,12 +51,12 @@ label start:
         $ difficulty = 2
         e "Misère... Il semblerait que le monde soit contre nous..."
 
-    $ gun_seen = False
-    $ inf = 50
     stop music fadeout 1.0
     show black with dissolve
-    show screen button
 
     jump test
+    
+    call intro
+    jump chap1
 
     return
