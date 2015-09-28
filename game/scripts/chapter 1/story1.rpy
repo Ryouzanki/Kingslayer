@@ -1,5 +1,9 @@
 ###  Fichier contenant le tronc de l'enquete  ###
 
+screen tuto_object:
+
+    $ ui.imagebutton("medias/interface/objection.png", "medias/interface/objection.png", yalign = 0.5, clicked=[Jump("tuto_object_end")])
+    
 label chap1:
     
     scene waiting with dissolve
@@ -176,6 +180,7 @@ label proc1:
     
     scene judge
     
+    play music (courtroom) fadein 2
     j "Maintenant que la défense est enfin présente..."
     j "Je déclare la séance ouverte, pour le procès de Mr Alain Provist."
     j "La défense est-elle prête ?"
@@ -187,7 +192,7 @@ label proc1:
         xalign 0.5
     show courtroom_right:
         xalign 1.0 xanchor 0.0
-    show ryouzanki explaining:
+    show ryouzanki normal:
         xalign 1.0 xanchor 0.0
     with None
     
@@ -200,7 +205,7 @@ label proc1:
          xalign 0.0 xanchor 1.0
     show courtroom_right:
         xalign 0.5
-    show ryouzanki explaining:
+    show ryouzanki normal:
         xalign 0.5
     with move
     
@@ -213,17 +218,18 @@ label proc1:
     show courtroom_left
     show elusia normal
     
-    e "Elusia Bravewill, votre honneur."
+    e "Mlle Bravewill, votre honneur, Elusia Bravewill."
     
     scene judge
     
     j "Vous êtes nouvelle n'est-ce pas ?"
+    j "Votre performance aujourd'hui décidera du destin de votre client."
     j "Serez vous à la hauteur ?"
     
     show courtroom_left
     show elusia explaining
     
-    e "Vous le verrez pas vous même, votre honneur !"
+    e "Vous le verrez par vous même, votre honneur !"
     
     scene judge
     
@@ -231,8 +237,66 @@ label proc1:
     j "Si l'accusation veut bien se donner la peine d'énoncer les charges à l'encontre de Mr Provist."
     
     scene courtroom_right
-    show ryouzanki explaining
+    show ryouzanki normal
     
     r "Avec grand plaisir votre honneur."
+    
+    scene witness_stand
+    show alain normal
+    show witness_bar
+    
+    r "Le suspect ici présent est accusé d'homicide sur la personne de Mr Berthold."
+    r "D'après les premiers éléments d'enquête, le suspect aurait poussé la victime d'un balcon."
+    r "La victime était un brillant ingénieur en aéronautique célibataire vivant seul."
+    r "Le rapport d'autopsie confirme que la mort est bien due à une chute du 4ème étage."
+    r "Tous deux étaient logés dans le même hôtel de vacance Heaven Fall, dans des chambres adjacentes."
+    r "Lorsque Mr Berthold a été poussé de son balcon, les vacanciers de la chambre du dessous sont montés pour coincer le coupable."
+    r "Mr Provist ici présent était l'unique personne à cet étage d'où son arrestation."
+    
+    scene judge
+    
+    j "Je vois. Et bien c'est un cas plutôt simple."
+    j "Je déclare donc l'accusé..."
+    
+label loop_tuto1:
+    
+    show screen tuto_object
+    e "(Elusia, tu ne peux pas le laisser finir sa phrase...)"
+    e "(Vite, émets une objection !)"
+    e "(Ce joli bouton qui vient d'appaître à gauche là !)"
+    jump loop_tuto1
+    
+label tuto_object_end:
+    
+    hide screen tuto_object
+    
+    $ renpy.music.stop()
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    
+    
+    show courtroom_left
+    show elusia objection
+    
+    e "OBJECTION !"
+    show elusia explaining
+    e "Votre honneur, ne faisons pas de conclusion hâtive."
+    e "Il aurait très bien pu s'agir d'un suicide."
+    scene judge
+    j "Oui, je n'avais pas vu cette éventualité. Est-ce que l'avocat général à quelque chose à répondre à cela ?"
+    
+    show courtroom_left:
+        xalign 0.0 xanchor 1.0
+    show elusia normal:
+         xalign 0.0 xanchor 1.0
+    show courtroom_right:
+        xalign 0.5
+    show ryouzanki normal:
+        xalign 0.5
+    with None
+    
+    r "Dîtes moi Bravewill... Un homicide n'est-il pas un cas un peu difficile à traiter pour débuter ?"
+    
     
     return

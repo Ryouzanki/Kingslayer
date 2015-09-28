@@ -14,11 +14,11 @@ label intro:
     envl "Depuis toute petite, j'ai toujours été très férue de justice."
     envl "C'est pourquoi, j'avais décidé de devenir \navocate au barreau."
     envl "Afin de défendre les faibles des injustices !"
-    envl "J'accomplie enfin mon rêve de paladin des \ntemps modernes..."
+    envl "J'accomplis enfin mon rêve de paladin des \ntemps modernes..."
     envl "Enfin, si seulement c'était aussi simple \nque ça..."
     nvl clear
     show CG_elusia_thinking
-    envl "Ca faisait bientot 6 mois que j'avais ouvert mon cabinet."
+    envl "Ca fait bientot 6 mois que j'ai ouvert mon cabinet."
     envl "Et toujours pas de client."
     envl "Quand \"il\" est arrivé."
     envl "Je n'espérais pas le revoir dans ce genre \de circonstance mais..."
