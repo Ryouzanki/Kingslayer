@@ -22,6 +22,7 @@ define elusia_obj = "medias/sounds/elusia object.mp3"
 # Sprites
 image ryouzanki objection = "medias/sprites/ryouzanki objection.png"
 image ryouzanki explaining = "medias/sprites/ryouzanki explaining.png"
+image ryouzanki normal = "medias/sprites/ryouzanki normal.png"
 image bubble_obj_ryou = "medias/interface/bubble_obj_ryou.png"
 
 # Voice
@@ -98,6 +99,7 @@ image white = "#ffffff"
 # Action theme
 define intro = "medias/musics/intro.mp3"
 define detention = "medias/musics/detention.mp3"
+define courtroom = "medias/musics/courtroom.mp3"
 
 
 ### Sounds
