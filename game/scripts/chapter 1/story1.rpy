@@ -185,7 +185,6 @@ label proc1:
     j "Je déclare la séance ouverte, pour le procès de Mr Alain Provist."
     j "La défense est-elle prête ?"
     
-    
     show courtroom_left:
         xalign 0.5
     show elusia normal:
@@ -195,7 +194,6 @@ label proc1:
     show ryouzanki normal:
         xalign 1.0 xanchor 0.0
     with None
-    
     
     e "La défense est prête, votre honneur."
     
@@ -258,11 +256,12 @@ label proc1:
     j "Je vois. Et bien c'est un cas plutôt simple."
     j "Je déclare donc l'accusé..."
     
-label loop_tuto1:
-    
     show screen tuto_object
     e "(Elusia, tu ne peux pas le laisser finir sa phrase...)"
     e "(Vite, émets une objection !)"
+    
+label loop_tuto1:
+    
     e "(Ce joli bouton qui vient d'appaître à gauche là !)"
     jump loop_tuto1
     
@@ -274,15 +273,109 @@ label tuto_object_end:
     show bubble_obj_elu
     play sound elusia_obj
     $ renpy.pause(0.5)
-    
-    
+
     show courtroom_left
     show elusia objection
     
     e "OBJECTION !"
-    show elusia explaining
+    
+    show courtroom_left:
+        xalign 0.5
+    show elusia explaining:
+        xalign 0.5
+    show courtroom_right:
+        xalign 1.0 xanchor 0.0
+    show ryouzanki normal:
+        xalign 1.0 xanchor 0.0
+    with None
+    
     e "Votre honneur, ne faisons pas de conclusion hâtive."
-    e "Il aurait très bien pu s'agir d'un suicide."
+    e "(Réfléchissons vite mais réfléchissons bien...)"
+    
+    menu:
+        "Avancer la théorie du suicide.":
+            e "Il aurait très bien pu s'agir d'un suicide."
+        "Avancer la théorie de l'accident.":
+            e "Il aurait très bien pu s'agir d'un accident."
+            show courtroom_left:
+                xalign 0.0 xanchor 1.0
+            show elusia normal:
+                    xalign 0.0 xanchor 1.0
+            show courtroom_right:
+                xalign 0.5
+            show ryouzanki normal:
+                xalign 0.5
+            with move
+            r "Un accident sur une balustrade d' 1m30 ?"
+            r "Quelqu'un a du \"provoquer\" cet accident..."
+            show courtroom_left:
+                xalign 0.5
+            show elusia down:
+                xalign 0.5
+            show courtroom_right:
+                xalign 1.0 xanchor 0.0
+            show ryouzanki normal:
+              xalign 1.0 xanchor 0.0
+            with move
+            e "(Comment suis-je censé savoir ce genre de trucs moi ?)"
+            e "(Je fais quoi maintenant ?)"
+            menu:
+                "Insister sur la théorie de l'accident.":
+                    show elusia normal
+                    e "Heu... Si je puis me permettre..."
+                    e "Peut être que la victime s'entrainait pour faire acrobate dans un cirque ?"
+                    show courtroom_left:
+                        xalign 0.0 xanchor 1.0
+                    show elusia normal:
+                         xalign 0.0 xanchor 1.0
+                    show courtroom_right:
+                         xalign 0.5
+                    show ryouzanki normal:
+                        xalign 0.5
+                    with move
+                    r "Dois-je en conclure que vous vous entrainez pour clown dans un cirque ?"
+                    show courtroom_left:
+                        xalign 0.5
+                    show elusia down:
+                           xalign 0.5
+                    show courtroom_right:
+                            xalign 1.0 xanchor 0.0
+                    show ryouzanki normal:
+                        xalign 1.0 xanchor 0.0
+                    with move
+                    e "Et bien dans ce cas, il ne peut s'agir que d'un suicide !"
+                    e "(Je n'ai plus le choix...)"
+                "Se rabattre sur la théorie du suicide.":
+                    show elusia normal
+                    e "Et bien dans ce cas, il ne peut s'agir que d'un suicide !"
+                   
+        
+    r "Ahem..."                
+    show courtroom_left:
+        xalign 0.0 xanchor 1.0
+    show elusia normal:
+        xalign 0.0 xanchor 1.0
+    show courtroom_right:
+        xalign 0.5
+    show ryouzanki normal:
+        xalign 0.5
+    with move
+    r "La victime était psychologiquement stable et sans problème."
+    r "Tout lui réussissait dans la vie."
+    r "Et aucune note de suicide n'a été retrouvée."
+    show courtroom_left:
+        xalign 0.5
+    show elusia explaining:
+        xalign 0.5
+    show courtroom_right:
+        xalign 1.0 xanchor 0.0
+    show ryouzanki normal:
+        xalign 1.0 xanchor 0.0
+    with move
+    e "Mais ça ne prouve pas qu'il ne l'a pas fait..."
+    show elusia objection
+    e "Et encore moins que mon client est coupable !"
+
     scene judge
     j "Oui, je n'avais pas vu cette éventualité. Est-ce que l'avocat général à quelque chose à répondre à cela ?"
     
@@ -297,6 +390,35 @@ label tuto_object_end:
     with None
     
     r "Dîtes moi Bravewill... Un homicide n'est-il pas un cas un peu difficile à traiter pour débuter ?"
+    r "Croyez moi, j'aurais aussi espéré pour vous que cela soit un suicide."
+    
+    show courtroom_left:
+        xalign 0.5
+    show elusia normal:
+         xalign 0.5
+    show courtroom_right:
+        xalign 1.0 xanchor 0.0
+    show ryouzanki normal:
+        xalign 1.0 xanchor 0.0
+    with move
+    
+    e "Dois-je en conclure que vous avez des preuves à l'appui ?"
+    
+    show courtroom_left:
+        xalign 0.0 xanchor 1.0
+    show elusia normal:
+         xalign 0.0 xanchor 1.0
+    show courtroom_right:
+        xalign 0.5
+    show ryouzanki normal:
+        xalign 0.5
+    with move
+    
+    r "Mais j'ai même mieux."
+    show ryouzanki explaining
+    r "J'ai un témoin visuel direct de la scène du meutre !"
+    r "L'accusation aimerait appeler son premier témoin à la barre."
+    
     
     
     return
