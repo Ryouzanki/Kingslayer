@@ -8,6 +8,7 @@
 
 # Sprites
 image elusia objection = "medias/sprites/elusia objection.png"
+image elusia down = "medias/sprites/elusia down.png"
 image elusia explaining = "medias/sprites/elusia explaining.png"
 image elusia normal = "medias/sprites/elusia normal.png"
 image bubble_obj_elu = "medias/interface/bubble_obj_elu.png"
