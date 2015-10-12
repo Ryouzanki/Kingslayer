@@ -53,6 +53,20 @@ image alice satisfied = im.Composite((200, 520),
 image alain normal = "medias/sprites/alain normal.png"
 image alain panick = "medias/sprites/alain panick.png"
 
+## Lara Tatouille
+image lara normal = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice normal.png")
+image lara worried = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice sad.png")
+image lara hit = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice angry.png")
+image lara broken = im.Composite((200, 520),
+                                        (0, 50), "medias/sprites/alice scientist.png",
+                                        (0, 50), "medias/sprites/alice geez.png")
+
 ### Proof
 
 ## Testing area
@@ -62,6 +76,16 @@ image spoon = "medias/interface/spoon.png"
 image spoon1 = "medias/interface/spoon1.png"
 image gun = "medias/interface/gun.png"
 image gun1 = "medias/interface/gun1.png"
+
+## Chapter1
+image A1 = "medias/interface/A1.png"
+image A2 = "medias/interface/A2.png"
+image A3 = "medias/interface/A3.png"
+image A4 = "medias/interface/A4.png"
+image MA4 = "medias/interface/MA4.png"
+image MA1 = "medias/interface/MA1.png"
+image MA2 = "medias/interface/MA2.png"
+image MA3 = "medias/interface/MA3.png"
 
 ### Background
 
@@ -101,6 +125,7 @@ image white = "#ffffff"
 define intro = "medias/musics/intro.mp3"
 define detention = "medias/musics/detention.mp3"
 define courtroom = "medias/musics/courtroom.mp3"
+define deposition = "medias/musics/deposition.mp3"
 
 
 ### Sounds
@@ -111,4 +136,9 @@ define select = "medias/sounds/select.ogg"
 define paf = "medias/sounds/paf.wav"
 
 
+### Positions
+
+
+init:
+    $ hcd = Position(xpos=0.5, xanchor=0.5, ypos=0.5, yanchor=0.5)
 
