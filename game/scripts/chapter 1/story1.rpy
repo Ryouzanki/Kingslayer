@@ -6,7 +6,9 @@ screen tuto_object:
     
 label chap1:
     
+    $ inf = 50
     scene waiting with dissolve
+    show screen menu_base
     e "Enfin j'y suis... Mon premier procès !"
     e "Je suis à la fois excitée et complètement terrifiée..."
     play sound paf
@@ -185,26 +187,41 @@ label proc1:
     j "Je déclare la séance ouverte, pour le procès de Mr Alain Provist."
     j "La défense est-elle prête ?"
     
-    show courtroom_left:
-        xalign 0.5
-    show elusia normal:
-        xalign 0.5
-    show courtroom_right:
-        xalign 1.0 xanchor 0.0
-    show ryouzanki normal:
-        xalign 1.0 xanchor 0.0
-    with None
+    # show courtroom_left:
+        # xalign 0.5
+    # show elusia normal:
+        # xalign 0.5
+    # show courtroom_right:
+        # xalign 1.0 xanchor 0.0
+    # show ryouzanki normal:
+        # xalign 1.0 xanchor 0.0
+    # with None
+    
+    show courtroom_left
+    show elusia normal
+    show courtroom_right at offscreenright
+    show ryouzanki normal at offscreenright
     
     e "La défense est prête, votre honneur."
     
+#    show courtroom_left:
+#         xalign 0.0 xanchor 1.0
+#    show elusia normal:
+#         xalign 0.0 xanchor 1.0
+#    show courtroom_right:
+#         xalign 0.5
+#    show ryouzanki normal:
+#         xalign 0.5
+#    with move
+
     show courtroom_left:
-        xalign 0.0 xanchor 1.0
+        offscreenleft
     show elusia normal:
-         xalign 0.0 xanchor 1.0
+        offscreenleft
     show courtroom_right:
-        xalign 0.5
+        center
     show ryouzanki normal:
-        xalign 0.5
+       center
     with move
     
     r "L'accusation est prête, votre honneur."
@@ -243,7 +260,7 @@ label proc1:
     show alain normal
     show witness_bar
     
-    r "Le suspect ici présent est accusé d'homicide sur la personne de Mr Berthold."
+    r "Le suspect ici présent est accusé d'homicide sur la personne de Mr Goland."
     r "D'après les premiers éléments d'enquête, le suspect aurait poussé la victime d'un balcon."
     r "La victime était un brillant ingénieur en aéronautique célibataire vivant seul."
     r "Le rapport d'autopsie confirme que la mort est bien due à une chute du 4ème étage."
@@ -299,7 +316,7 @@ label tuto_object_end:
             e "Il aurait très bien pu s'agir d'un accident."
             show courtroom_left:
                 xalign 0.0 xanchor 1.0
-            show elusia normal:
+            show elusia explaining:
                     xalign 0.0 xanchor 1.0
             show courtroom_right:
                 xalign 0.5
@@ -321,6 +338,7 @@ label tuto_object_end:
             e "(Je fais quoi maintenant ?)"
             menu:
                 "Insister sur la théorie de l'accident.":
+                    call influence(-5)
                     show elusia normal
                     e "Heu... Si je puis me permettre..."
                     e "Peut être que la victime s'entrainait pour faire acrobate dans un cirque ?"
@@ -333,7 +351,7 @@ label tuto_object_end:
                     show ryouzanki normal:
                         xalign 0.5
                     with move
-                    r "Dois-je en conclure que vous vous entrainez pour clown dans un cirque ?"
+                    r "Dois-je en conclure que vous vous entrainez pour faire clown dans un cirque ?"
                     show courtroom_left:
                         xalign 0.5
                     show elusia down:
@@ -416,9 +434,178 @@ label tuto_object_end:
     
     r "Mais j'ai même mieux."
     show ryouzanki explaining
-    r "J'ai un témoin visuel direct de la scène du meutre !"
+    r "Nous avons un témoin visuel direct de la scène du meutre !"
     r "L'accusation aimerait appeler son premier témoin à la barre."
     
+    scene black with dissolve
+    play music (courtroom) fadein 2
+    $ renpy.pause(1.0)
     
+    show witness_stand:
+        xalign 0.5
+    show lara normal:
+        xalign 0.5
+    show witness_bar:
+        xalign 0.5
+    show courtroom_right:
+        xalign 1.0 xanchor 0.0
+    show ryouzanki normal:
+        xalign 1.0 xanchor 0.0
+    with dissolve
+    
+    t1 "Bonjour."
+    show lara worried with hpunch
+    alain "LARA !"
+    
+    show witness_stand:
+        xalign 0.0 xanchor 1.0
+    show lara normal:
+        xalign 0.0 xanchor 1.0
+    show witness_bar:
+        xalign 0.0 xanchor 1.0
+    show courtroom_right:
+        xalign 0.5
+    show ryouzanki explaining:
+        xalign 0.5
+    with move
+    
+    r "Silence. Votre tour de parole viendra."
+    show ryouzanki normal
+    r "Témoin ! Veuillez décliner votre identité civile, votre âge et votre profession"
+    
+    show witness_stand:
+        xalign 0.5
+    show lara normal:
+        xalign 0.5
+    show witness_bar:
+        xalign 0.5
+    show courtroom_right:
+        xalign 1.0 xanchor 0.0
+    show ryouzanki normal:
+        xalign 1.0 xanchor 0.0
+    with move
+
+    t1 "Je m'appelle Lara Tatouille et j'ai 28 ans. Je suis cuisinière dans un restaurant gastronomique."
+    
+    show witness_stand:
+        xalign 0 xanchor 1.0
+    show lara normal:
+        xalign 0 xanchor 1.0
+    show witness_bar:
+        xalign 0 xanchor 1.0
+    show courtroom_right:
+        xalign 0.5
+    show ryouzanki normal:
+        xalign 0.5
+    with move
+    
+    r "Je vois sur votre état civil que votre nom est Lara Provist."
+    r "Avez vous une explication à cela ?"
+    
+    show witness_stand:
+        xalign 0.5
+    show lara normal:
+        xalign 0.5
+    show witness_bar:
+        xalign 0.5
+    show courtroom_right:
+        xalign 1.0 xanchor 0.0
+    show ryouzanki normal:
+        xalign 1.0 xanchor 0.0
+    with move
+    
+    t1 "Je... Je vais demander un divorce."
+    t1 "Et je ne veux plus porter le nom d'un meurtrier."
+    
+    show witness_stand:
+        xalign 0 xanchor 1.0
+    show lara normal:
+        xalign 0 xanchor 1.0
+    show witness_bar: 
+        xalign 0 xanchor 1.0
+    show courtroom_right:
+        xalign 0.5
+    show ryouzanki normal:
+        xalign 0.5
+    with move
+    
+    r "Très bien. Nous verrons cela plus tard, veuillez faire votre déposition Mme Provist."
+    
+    scene black with dissolve
+    $ renpy.pause(1.0)
+    
+    scene witness_stand:
+        center
+    show lara normal:
+        center
+    show witness_bar:
+        center
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        offscreenleft
+    show elusia normal:
+        offscreenleft
+    with dissolve
+    
+    t1 "Nous étions en vacances avec Alain dans un petit hôtel en montagne."
+    t1 "Il est parti faire de la randonnée sans moi parce que j'étais fatiguée."
+    t1 "Je discutais avec notre voisin de palier quand il est rentré ivre dans la chambre."
+    show lara hit
+    t1 "C'est alors que dans une rage sans raison, il s'est précipité sur la victime !"
+    t1 "Il l'a poussé plusieurs fois en hurlant jusqu'à la rambarde d'où la victime est tombée."
+    
+    scene witness_stand:
+        offscreenleft
+    show lara hit:
+        offscreenleft
+    show witness_bar:
+        offscreenleft
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    with move
+    
+    r "Si la cour le permet, l'accusation aimerait présenter des pièces à conviction."
+    r "Ces pièces à conviction épaulent plus ou moins la déposition précedante."
+    scene A2 with fade
+    r "Tout d'abord, le rapport d'autopsie indique que la victime est bien morte d'une chute."
+    r "Une chute du 4ème étage pour être précis."
+    scene A1 with fade
+    r "Comme l'indique ce plan, la chambre du suspect est bel et bien située au 4ème étage de l'hôtel."
+    r "Le couple Provist était bien voisin de palier avec Mr Golant."
+    scene A4 with fade
+    r "Voici une photo de la chambre du suspect."
+    r "On y voit les traces de boues que le suspect a ramené de sa randonnée en montagne."
+    scene A3 with fade
+    r "Pour terminer -âmes sensibles, s'abstenir- , voici une photo prise par l'inspecteur Alizan, chargé de l'enquête."
+    r "Il s'agit de la scène située en dessous du balcon de la chambre 404." 
+    scene CG_thinking_anim with fade
+    show CG_elusia_thinking with moveinleft
+    nvl clear
+    envl "Mmmh... Je n'ai pas eut le temps d'examiner ces preuves de très près..."
+    show screen proof11button
+    envl "Mais maintenant, je peux le faire à tout moment en cliquant sur l'onglet preuve en haut à gauche de l'écran."
+    envl "Il me permet de regarder de plus près les preuves quand bon me semble..."
+    envl "Lara... Elle ment probablement quelque part... Ou alors Alain serait un..."
+    envl "Non, je ne dois pas y penser. Je dois \ntrouver la brèche dans ce témoignage \net enfoncer une preuvce dedans !"
+    nvl clear
+    envl "Aller ma grande ! Montre leur que tu n'as pas passé toutes ses années sur les bancs de la fac pour rien !"
+    envl "Il faut reprendre le témoignage à zéro. Je pourrais demander des précisions avec le bouton sur la droite de l'écran."
+    envl "Et lorsque je verrais une faille dans le témoignage, je pourrais lancer une objection avec une preuve à l'appui."
+    envl "Il faut que je réflechisse bien avant de \nlancer une objection..."
+    envl "Je ne veux pas me ridiculiser devant \nle juge..."
+    nvl clear
+    envl "Une objection mal placée me ferait perdre de l'influence sur l'issue du procès."
+    $ show_infl = True
+    envl "L'influence que j'ai sur le procès est indiqué au dessus."
+    envl "Je crois que j'ai tout en tête... C'est partit !"
+    
+    
+    
+
     
     return

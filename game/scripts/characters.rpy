@@ -22,3 +22,4 @@ define j =  Character(what_color="#555555")
 # Témoins
 define a =  Character(what_color="#EE8811") # (test)
 define alain =  Character(what_color="#445566")
+define t1 = Character(what_color="#7788EE") # témoin a redéclarer a chaque enquete

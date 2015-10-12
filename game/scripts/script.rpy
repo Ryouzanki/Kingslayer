@@ -54,7 +54,9 @@ label start:
     stop music fadeout 1.0
     show black with dissolve
 
-    #jump test
+    
+    
+    # jump test
     
     call intro
     jump chap1

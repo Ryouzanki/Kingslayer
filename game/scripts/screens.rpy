@@ -1,6 +1,9 @@
-﻿#### Ce fichier gère l' UI   ####
+﻿#### Ce fichier gère l' UI commune  ####
 
-
+screen menu_base:
+    
+    $ ui.imagebutton("medias/interface/menu.png", "medias/interface/menu.png", xalign = 1.0, clicked=ShowMenu("preferences"))
+    
 screen diff_imagemap:
     imagemap:
         auto "medias/interface/diff_%s.png"
