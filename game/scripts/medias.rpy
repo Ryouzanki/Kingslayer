@@ -115,6 +115,11 @@ image judge = "medias/backgrounds/judge.png"
 image detention_stand = "medias/backgrounds/detention stand.png"
 image detention_bar = "medias/backgrounds/detention stand2.png"
 
+# Encounter
+image enc_elu = "medias/interface/encounter_elusia.png"
+image enc_ryou = "medias/interface/encounter_ryouzanki.png"
+image enc_vs = "medias/interface/encounter_vs.png"
+
 ## Fonds unis
 image black = "#000000"
 image white = "#ffffff"
@@ -134,7 +139,7 @@ define deposition = "medias/musics/deposition.mp3"
 define splash = "medias/sounds/splash.mp3"
 define select = "medias/sounds/select.ogg"
 define paf = "medias/sounds/paf.wav"
-
+define duel = "medias/sounds/duel.mp3"
 
 ### Positions
 
