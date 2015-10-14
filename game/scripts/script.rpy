@@ -4,6 +4,37 @@
 init -1 python:
     config.main_menu_music = "medias/musics/main menu.mp3"
     
+label encounter:
+    
+    stop music fadeout 1.0
+    play sound duel
+    
+    show enc_elu:
+        offscreenleft
+    show enc_ryou:
+        offscreenright
+    with None
+    
+    show enc_elu:
+        center
+    show enc_ryou:
+        center
+    with ease
+    
+    show enc_vs with dissolve
+    
+    $ renpy.pause(0.5)
+    
+    hide enc_vs with dissolve
+    
+    show enc_elu:
+        offscreenright
+    show enc_ryou:
+        offscreenleft
+    with ease
+    
+    return
+    
 label splashscreen:
     
     play sound splash
@@ -53,8 +84,6 @@ label start:
 
     stop music fadeout 1.0
     show black with dissolve
-
-    
     
     # jump test
     
