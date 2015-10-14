@@ -1,3 +1,55 @@
+screen testimony_scre11:
+
+    $ ui.imagebutton("medias/interface/objection.png", "medias/interface/objection.png", yalign = 0.5, clicked=[Jump("proof_selector11")])
+    $ ui.imagebutton("medias/interface/press.png", "medias/interface/press.png", yalign = 0.5, xalign = 1.0, clicked=[Jump("press11")])
+  
+label proof_selector11:
+    
+    hide screen testimony_scre11
+    
+    # trop kikoo ? :s
+    
+    #show CG_thinking
+    #show CG_elusia_thinking with moveinleft
+    
+    call screen proof_select11
+    
+screen proof_select11:
+    
+    grid 3 1:
+        xalign 0.5
+        yalign 0.5
+        $ ui.imagebutton("medias/interface/MA1.png", "medias/interface/MA1.png",  clicked=[SetVariable("try_objection",1),Jump("aiguillage11")])
+        $ ui.imagebutton("medias/interface/MA2.png", "medias/interface/MA2.png",  clicked=[SetVariable("try_objection",2),Jump("aiguillage11")])
+        $ ui.imagebutton("medias/interface/MA3.png", "medias/interface/MA3.png",  clicked=[SetVariable("try_objection",3),Jump("aiguillage11")])
+        $ ui.imagebutton("medias/interface/MA4.png", "medias/interface/MA4.png",  clicked=[SetVariable("try_objection",4),Jump("aiguillage11")])
+
+label aiguillage11:
+    
+    hide CG_thinking
+    hide CG_elusia_thinking
+    $ renpy.music.stop()
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_left
+    show elusia objection
+    
+    e "OBJECTION !"
+    
+    if (witness_statement == 1):
+        jump object1_1_1
+    elif (witness_statement == 2):
+        jump object1_1_2
+    elif (witness_statement == 3):
+        jump object1_1_3
+    elif (witness_statement == 4):
+        jump object1_1_4
+    elif (witness_statement == 5):
+        jump object1_1_5
+    else:
+        "ERREUR AIGUILLAGE OBJECTION"
+
 screen proof11button:
     
    $ ui.imagebutton("medias/interface/proof.png", "medias/interface/proof.png", clicked=ShowMenu("proof11"))
