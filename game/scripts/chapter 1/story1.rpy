@@ -603,9 +603,241 @@ label tuto_object_end:
     $ show_infl = True
     envl "L'influence que j'ai sur le procès est indiqué au dessus."
     envl "Je crois que j'ai tout en tête... C'est partit !"
-    
-    
-    
 
+    scene witness_stand:
+        center
+    show lara normal:
+        center
+    show witness_bar:
+        center
+    with fade
+    
+    call encounter
+
+    play music (detention) fadein 2
+    
+label dep11:
+
+    $ try_objection = 0
+    
+    show screen testimony_scre11
+    
+    scene witness_stand:
+        center
+    show lara normal:
+        center
+    show witness_bar:
+        center
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        offscreenleft
+    show elusia normal:
+        offscreenleft
+    with dissolve
+    
+    $ witness_statement = 1
+    t1 "Nous étions en vacances avec Alain dans un petit hôtel en montagne."
+    
+    $ witness_statement = 2
+    t1 "Il est parti faire de la randonnée sans moi parce que j'étais fatiguée."
+    
+    $ witness_statement = 3
+    t1 "Je discutais avec notre voisin de palier quand il est rentré ivre dans la chambre."
+    show lara hit
+    
+    $ witness_statement = 4
+    t1 "C'est alors que dans une rage sans raison, il s'est précipité sur la victime !"
+    
+    $ witness_statement = 5
+    t1 "Il l'a poussé plusieurs fois en hurlant jusqu'à la rambarde d'où la victime est tombée."
+
+    hide screen testimony_scre11
+    
+    scene judge with fade
+    
+    j "Le témoignage convient-il à la défence ?"
+    
+    scene courtroom_left
+    show elusia normal
+    
+    menu:
+        "La défence n'a rien à répondre à cela.":
+            scene courtroom_left:
+                xalign 0.5
+            show courtroom_right:
+                xalign 1.0 xanchor 0.0
+            show ryouzanki normal:
+                xalign 1.0 xanchor 0.0
+            show elusia normal
+            e "La défence n'a rien à répondre à cela."
+            show courtroom_left:
+                xalign 0.0 xanchor 1.0
+            show elusia normal:
+                xalign 0.0 xanchor 1.0
+            show courtroom_right:
+                xalign 0.5
+            show ryouzanki normal:
+              xalign 0.5
+            with move
+            r "Vraiment ? Bravewill..."
+            r "Si ce témoignage est validé, cela indique clairement que votre client est coupable."
+            show courtroom_left:
+                xalign 0.5
+            show elusia down:
+                xalign 0.5
+            show courtroom_right:
+                xalign 1.0 xanchor 0.0
+            show ryouzanki normal:
+                 xalign 1.0 xanchor 0.0
+            with move
+            e "Awawawa..."
+            e "La... La défence désire réécouter une nouvelle fois la déposition."
+            call influence(-2)
+        "Non, J'ai du rater quelque chose...":
+            scene courtroom_left
+            show elusia explaining
+            e "Non, J'ai du rater quelque chose..."
+            e "Il y a encore quelque chose de suspicieux dans cette déposition."
+            e "La défence désire réécouter une nouvelle fois la déposition."
+            call influence(-1)
+            
+    jump dep11
+    
+label press11:
+    
+    # TODO mettre le squelette des "UN INSTANT" ici
+    
+    scene witness_stand:
+        center
+    show lara worried:
+        center
+    show witness_bar:
+        center
+    show courtroom_left:
+        offscreenleft
+    show elusia explaining:
+        offscreenleft
+    with None
+    
+    hide screen testimony_scre11
+    
+    if(witness_statement == 1):
+        show witness_stand:
+            offscreenright
+        show lara normal:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia explaining:
+            center
+        with move
+        e "Et donc vous êtes partis en vacances ?"
+        show witness_stand:
+            center
+        show lara normal:
+            center
+        show witness_bar:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        t1 "Oui."
+        show witness_stand:
+            offscreenright
+        show lara normal:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia explaining:
+            center
+        with move
+        e "Avec Mr Alain Provist ?"
+        show witness_stand:
+            center
+        show lara normal:
+            center
+        show witness_bar:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        t1 "Oui."
+        show witness_stand:
+            offscreenright
+        show lara normal:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia normal:
+            center
+        with move
+        e "Dans un hôtel à la montagne ?"
+        show witness_stand:
+            center
+        show lara normal:
+            center
+        show witness_bar:
+            center
+        show courtroom_right:
+            offscreenright
+        show ryouzanki normal:
+            offscreenright
+        show courtroom_left:
+            offscreenleft
+        show elusia normal:
+            offscreenleft
+        with move
+        t1 "Oui..."
+        show witness_stand:
+            offscreenleft
+        show lara normal:
+            offscreenleft
+        show witness_bar:
+            offscreenleft
+        show courtroom_right:
+            center
+        show ryouzanki normal:
+            center
+        with move
+        r "Je crois que quelqu'un ici aurait bien besoin de vacances..."
+        scene black with dissolve
+        
+    elif(witness_statement == 2):
+        "blbl"
+    elif(witness_statement == 3):
+        "blbl"
+    elif(witness_statement == 4):
+        "blbl"
+    elif(witness_statement == 5):
+        "blbl"
+    else:
+        "ERROR PRESS NOT FOUND"
+
+
+    call influence(-1)
+    jump dep11
+    
+label object1_1_1:
+label object1_1_2:
+label object1_1_3:
+label object1_1_4:
+label object1_1_5:
+    
+label dep11end:
+    
+    "END"
     
     return
