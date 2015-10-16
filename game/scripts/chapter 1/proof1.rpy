@@ -16,14 +16,15 @@ label proof_selector11:
     
 screen proof_select11:
     
-    grid 4 1:
+    grid 5 1:
         xalign 0.5
         yalign 0.5
         $ ui.imagebutton("medias/interface/MA1.png", "medias/interface/MA1.png",  clicked=[SetVariable("try_objection",1),Jump("aiguillage11")])
         $ ui.imagebutton("medias/interface/MA2.png", "medias/interface/MA2.png",  clicked=[SetVariable("try_objection",2),Jump("aiguillage11")])
         $ ui.imagebutton("medias/interface/MA3.png", "medias/interface/MA3.png",  clicked=[SetVariable("try_objection",3),Jump("aiguillage11")])
         $ ui.imagebutton("medias/interface/MA4.png", "medias/interface/MA4.png",  clicked=[SetVariable("try_objection",4),Jump("aiguillage11")])
-
+        $ ui.imagebutton("medias/interface/return.png", "medias/interface/return.png",  clicked=Jump("dep11"))
+        
 label aiguillage11:
     
     hide CG_thinking

@@ -6,6 +6,10 @@ screen tuto_object:
     
 label chap1:
     
+    $ ryou_attack_1 = False  # confirmation victime en caleçon
+    $ ryou_attack_2 = False
+    $ ryou_attack_3 = False
+    
     $ inf = 50
     scene waiting with dissolve
     show screen menu_base
@@ -645,7 +649,12 @@ label dep11:
     t1 "Il est parti faire de la randonnée sans moi parce que j'étais fatiguée."
     
     $ witness_statement = 3
-    t1 "Je discutais avec notre voisin de palier quand il est rentré ivre dans la chambre."
+    
+    if not ryou_attack_1:
+        t1 "Je discutais avec notre voisin de palier quand il est rentré ivre dans la chambre."
+    else:
+        t1 "Je discutais avec notre voisin peu habillé quand il est rentré ivre dans la chambre."
+
     show lara hit
     
     $ witness_statement = 4
