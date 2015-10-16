@@ -16,7 +16,7 @@ label proof_selector11:
     
 screen proof_select11:
     
-    grid 3 1:
+    grid 4 1:
         xalign 0.5
         yalign 0.5
         $ ui.imagebutton("medias/interface/MA1.png", "medias/interface/MA1.png",  clicked=[SetVariable("try_objection",1),Jump("aiguillage11")])
