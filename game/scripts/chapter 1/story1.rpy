@@ -618,7 +618,7 @@ label tuto_object_end:
     
     call encounter
 
-    play music (detention) fadein 2
+    play music (deposition) fadein 2
     
 label dep11:
 
@@ -718,6 +718,549 @@ label dep11:
     
 label dep11end:
     
-    "END"
+    scene judge with fade
+    j "Qu'est-ce que cela signifie exactement Mlle Bravewill ?"
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia normal:
+        center
+    with dissolve
+    e "La défence pense que l'information suivante a été faussée :"
+    menu:
+        "Le lieu du crime.":
+            e "Le lieu du crime, votre honneur."
+            $ ryou_attack_2 = True
+        "L'heure du crime.":
+            e "L'heure du crime, votre honneur."
+            
+    show elusia explaining
+    e "Si comme le dit Mme Provist, son mari s'est précipité et tué Mr Goland dès son retour"
+    e "Il ne se serait pas arrêté au milieu de la chambre pour aller retirer ses chaussures."
+    show courtroom_right:
+        center
+    show ryouzanki explaining:
+        center
+    show courtroom_left:
+        offscreenleft
+    show elusia explaining:
+        offscreenleft
+    with move
+    r "..."
+    show ryouzanki normal
+    r "L'accusation aimerait appeler Mr Provist à la barre afin d'écouter sa version des faits."
+    show judge with dissolve
+    j "C'est soudain. La défence désire-t'elle quelques minutes afin de préparer Mr Provist ?"
+    show courtroom_left at center
+    show elusia normal at center
+    hide judge with dissolve
+    $ choix1 = True
+    $ choix2 = True
+    $ choix3 = True
+    $ choix4 = True #ivre ?
+    $ choix5 = True #vu goland ?
+    $ choix6 = True #spyed ?
+    menu:
+        "Ce ne sera pas nécessaire.":
+            show elusia explaining
+            call influence(5)
+            e "Ce ne sera pas nécessaire."
+            e "La défence est prête et l'innocence de mon client le protègera."
+            show courtroom_right:
+                center
+            show ryouzanki explaining:
+                center
+            show courtroom_left:
+                offscreenleft
+            show elusia explaining:
+                offscreenleft
+            with move
+            r "Tant d'assurance..."
+            show ryouzanki normal
+            r "Ce sera un réel plaisir à l'écraser..."
+            jump interro11
+        "Volontier votre honneur.":
+            e "Volontier votre honneur."
     
+    play music (recession) fadein 2
+    
+    scene waiting
+    show alain panick
+    with fade
+    alain "Il va m'interroger ?!"
+    
+    e "Ne t'inquiète pas, je vais t'aider à te défendre."
+    show courtroom_right sepia
+    show ryouzanki explaining sepia
+    with fade
+    e "Cet homme..."
+    nvl clear
+    show CG_thinking_anim with fade
+    show CG_elusia_thinking with moveinleft
+    envl "Il a une idée derrière la tête..."
+    envl "Peut être qu'il sait des choses sur mon client."
+    envl "Des choses gênantes qu'Alain me cache."
+    envl "Il faut que je connaisse toute la vérité afin de mieux le défendre."
+    envl "Si Alain est innocent, je ne vois pas pourquoi \nil ferait une telle chose."
+    nvl clear
+    envl "Quoi qu'il en soit, il faut que je prépare Alain."
+    envl "Je dois lui indiquer à quelles questions il peut répondre..."
+    envl "Et lui parler de son droit au silence."
+    envl "En effet, la justice ne peut forcer une\npersonne à témoigner contre elle même."
+    envl "Je dois garder en tête qu'un silence est très suspiscieux aussi et donc ne pas en abuser."
+    nvl clear
+    
+    scene waiting
+    show alain normal
+    with fade
+    
+    e "Alain..."
+    menu:
+        "J'ai confiance en toi.":
+            call influence(5)
+            e "J'ai confiance en toi."
+            alain "Merci..."
+            alain "Moi aussi j'ai confiance en toi."
+        "Me cacherais tu des choses ?":
+            e "Me cacherais tu des choses ?"
+            show alain panick
+            alain "Mais non ! Qu'est-ce qui te fais croire ça ?"
+            e "Intuition... Féminine ?"
+            alain "Je ne te cache rien Elusia..."
+    show alain normal
+    alain "A ce propos..."
+    alain "Tu t'es super bien débrouillé contre Lara..."
+    e "Oh, merci."
+    alain "Par où on commence ?"
+label preparatif_int_1:
+    menu:
+        "Le témoignage de Lara" if choix1:
+            $ choix1 = False
+            e "A propos du témoignage de Lara..."
+            e "Est-ce vrai que tu étais ivre ?"
+            alain "Oui. Lara n'a pas arrêter de m'emmerder toute la journée."
+            alain "Je voulais que l'ont parte en vacance ensemble pour se réconcilier."
+            alain "Et la pluie est venue pourrir mon dernier petit plaisir."
+            alain "Comprends moi, j'avais besoin de décompresser..."
+            e "Alain... Je ne suis pas là pour te juger..."
+            e "Si le procureur te pose la question..."
+            menu:
+                "Ne répond pas que tu étais ivre.":
+                    $ choix4 = False
+                    e "Ne répond pas que tu étais ivre."
+                "Dis la vérité.":
+                    e "Dis la vérité."
+            alain "D'accord."
+        "La victime" if choix2:
+            $ choix2 = False
+            e "La victime..."
+            e "Est-ce que tu la connaissais ? Au moins de vue ?"
+            alain "J'ai du la croiser une ou deux fois sans lui parler."
+            menu:
+                "Tu peux le dire...":
+                    e "Tu peux le dire..."
+                    e "Je ne pense pas que cela nous soit préjudiciable."
+                    alain "D'accord."
+                "Dis que tu ne l'as jamais vu.":
+                    $ choix5 = False
+                    e "Dis que tu ne l'as jamais vu."
+                    e "Ce sera plus simple."
+            alain "D'accord."
+        "Ce que tu as vu." if choix3:
+            $ choix3 = False
+            e "A propos de ce que tu as vu..."
+            e "Attends une minute mais... Qu'as tu vu en entrant exactement ?"
+            alain "Quand je suis rentré, on s'est disputé. Il n'y avait personne d'autre."
+            e "Mais alors tu n'as pas vu la victime ?"
+            show alain panick
+            alain "Mais non ! Tout ce qu'a dit Lara..."
+            show alain normal
+            alain "Ce n'est qu'un tissu de mensonge."
+            e "Je vois... Dis moi Alain..."
+            e "Est-ce que... Est-ce que tu savais que ta femme..."
+            alain "Ce n'est plus important..."
+            menu:
+                "Insister.":
+                    e "Alain... Je dois savoir."
+                    alain "Je l'aimais. Je suis partit plus loin sur le versant."
+                    alain "Je voulais qu'elle me voit sous la pluie la regarder au loin."
+                    alain "Mais en regardant dans notre chambre, j'ai vu deux personnes."
+                    e "Alain. C'est très important ce que tu viens de me dire."
+                    menu:
+                        "Il faut le cacher.":
+                            $ choix6 = False
+                            e "Il faut le cacher."
+                            e "Ca ne joue pas en notre faveur."
+                            alain "Je comprends."
+                        "Il faudra dire la vérité.":
+                            e "Il faudra dire la vérité."
+                            e "Je sais que c'est dur mais il le faut."
+                            alain "Je comprends."
+                "Laisser.":
+                    e "Très bien. Je n'insiste pas."
+                    alain "Merci..."
+        "Nous sommes prêts.":
+            e "Nous sommes prêts."
+            e "Bonne chance Alain ! Je suis avec toi !"
+            jump interro11
+    jump preparatif_int_1
+label interro11:
+    scene judge with fade
+    j "Très bien, puisque la défence est prête, je ne vois aucune raison d'attendre."
+    
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        offscreenleft
+    show elusia normal:
+        offscreenleft
+    show witness_stand:
+        center
+    show alain normal:
+        center
+    show witness_bar:
+        center
+    with fade
+    
+    call encounter
+    play music (deposition) fadein 2
+    alain "Je suis partit en vacance avec ma femme dans l'espoir que l'on s'aime à nouveau."
+    
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show witness_stand:
+        offscreenleft
+    show alain normal:
+        offscreenleft
+    show witness_bar:
+        offscreenleft
+    with move
+    r "Vous admettez donc que votre couple était au plan mort ?"
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show witness_stand:
+        center
+    show alain normal:
+        center
+    show witness_bar:
+        center
+    with move
+    alain "Oui. C'était trop tard. Elle ne m'aimait plus."
+    alain "Elle s'est contenté de pourrir ma moindre tentative."
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show witness_stand:
+        offscreenleft
+    show alain normal:
+        offscreenleft
+    show witness_bar:
+        offscreenleft
+    with move
+    r "Et vous avez bu pour oublier ?"
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show witness_stand:
+        center
+    show alain normal:
+        center
+    show witness_bar:
+        center
+    with move
+    alain "Heu... Je..."
+    if choix4:
+        alain "Oui, j'ai bu avant de rentrer."
+        alain "Une bonne heure au bar de l'hotel."
+    else:
+        alain "Non, juste un petit verre au bar de l'hotel."
+        alain "Pas assez pour être ivre."
+        
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show witness_stand:
+        offscreenleft
+    show alain normal:
+        offscreenleft
+    show witness_bar:
+        offscreenleft
+    with move
+    r "Je vois."
+    r "Aviez vous déjà vu Mr Goland avant ?"
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show witness_stand:
+        center
+    show alain normal:
+        center
+    show witness_bar:
+        center
+    with move
+    alain "Et bien..."
+    if choix5:
+        alain "Oui, je l'ai croisé quelques fois"
+        alain "Mais on ne s'est jamais adressé la parole."
+    else:
+        alain "Non, je ne l'ai jamais vu de ma vie"
+        alain "Même maintenant, je ne sais pas à quoi il ressemble."
+    alain "Je ne l'ai pas vu en entrant dans la chambre."
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show witness_stand:
+        offscreenleft
+    show alain normal:
+        offscreenleft
+    show witness_bar:
+        offscreenleft
+    with move
+    r "Une dernière chose Mr Provist..."
+    show ryouzanki explaining
+    r "Que faisiez vous dans la montagne seul et avec un temps pareil ?"
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show witness_stand:
+        center
+    show alain normal:
+        center
+    show witness_bar:
+        center
+    with move
+    alain "Je ne..."
+    if choix6:
+        alain "Je... J'espionnais ma femme depuis l'autre versant de montagne."
+        show courtroom_left:
+            center
+        show elusia down:
+            center
+        show witness_stand:
+            offscreenright
+        show alain normal:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        with move
+        e "Awawa... Ce n'est pas ce qui était prévu..."
+    else:
+        alain "Je prennais l'air pour me changer les idées."
+        alain "La montagne me réussis habituellement."
+    
+    stop music fadeout 1.0
+    scene courtroom_right
+    show ryouzanki normal
+    with fade
+    r "Votre honneur, l'accusation désire clore cet interrogatoire."
+    show judge with dissolve
+    j "Déjà ? Le témoignage vous convient-il donc ?"
+    j "Rien ne vous dérange ?"
+    hide judge with dissolve
+    r "La question serait plutôt ce qui ne me dérange pas."
+    show ryouzanki explaining
+    r "Ce témoignage chante si faux que j'en ai la migraine."
+    show ryouzanki normal
+    play music clash fadein 1.0
+    r "Tout d'abord, l'accusation désire exposer sa version des faits."
+    r "Le suspect n'a même pas passé de temps avec sa femme."
+    r "Ces \"vacances\" n'était qu'une pretexte pour l'emmener dans un endroit avec moins de monde."
+    r "Car il serait ainsi plus aisé d'identifier et d'éliminer l'amant de sa femme."
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with None
+    e "OBJECTION !"
+    show elusia explaining
+    e "Mon client n'était pas au courant pour l'adultère !"
+    
+    if choix6:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        r "Le suspect a lui même avoué qu'il espionnait sa femme !"
+        call influence(-3)
+    else:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        r "Vous n'avez aucune preuve de ce que vous avancez."
+        r "Personne n'avouerait une telle chose !"
+    
+    show ryouzanki normal
+    r "Par la suite, il a fait semblant de s'absenter."
+    r "Qui de sain d'esprit irait faire de la randonnée sous la tempête ?"
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with None
+    e "OBJECTION !"
+    show elusia explaining
+    e "Il l'aimait encore et voulait la laisser se reposer plutot que de se disputer avec !"
+    if choix6:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        r "Il voulait juste voir si les souris dansaient quand le chat partait !"
+        call influence(-2)
+    scene courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show courtroom_left:
+        offscreenleft
+    show elusia explaining:
+        offscreenleft
+    with move
+    r "Il voulait juste voir si les souris dansaient quand le chat partait !"
+    r "Il est rentré ivre après avoir bu pour se donner du courage pour son crime."
+    r "Il aurait pu tuer son rival sans scrupule."
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with move
+    if !choix4:
+        e "Il n'était pas ivre !"
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia objection:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        r "Son taux d'alcolémie relevé à son arrestation le prouve !"
+        call influence(-7)
+    else:
+        e "Il noyait son chagrin d'amour !"
+        e "Boire et tuer une personne sont indépendants !"
+        show elusia explaining
+        e "La défence aimerait que l'accusation cesse ses conjectures frauduleuses."
+        call influence(10)
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show courtroom_left:
+        offscreenleft
+    show elusia explaining:
+        offscreenleft
+    with move
+    r "Le suspect ment aussi sur sa relation avec la victime."
+    r "Leur deux noms sont sur la liste du club d'escalade de l'hotel."
+    r "autrement dit, ils auraient du passer 5 après midis ensemble."
+    if !choix5:
+        show ryouzanki objectiion
+        r "Il est impossible que le suspect n'ait jamais vu la victime !"
+        call influence(-9)
+        show ryouzanki normal
+    else:
+        r "Ils auraient très bien pu faire connaissance a ce moment là !"
+        show bubble_obj_elu
+        play sound elusia_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            offscreenright
+        show ryouzanki normal:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia objection:
+            center
+        with move
+        e "L'accusation ne cesse de parler au conditionnel !"
+        call influence(2)
+        show courtroom_right:
+            center
+        show ryouzanki normal:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+    r "J'espère que vous tenez le coup Bravewill..."
+    show ryouzanki explaining
+    r "Vous tenez tant à vos preuves."
+    show ryouzanki objection
+    r "Il se trouve que j'en ai !"
+    r "La police a relevé des empreintes digitales de Mr Provist sur la poignée de porte de la chambre de la victime !"
+    scene courtroom_left
+    show elusia down
+    with hpunch
+    e "Awawawa... Comment est-ce possible ?!"
     return

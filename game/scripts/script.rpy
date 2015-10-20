@@ -62,10 +62,20 @@ label influence(modificateur):
     
 label game_over:  # TODO
     
-    scene courtroom_right with fade
-    show ryouzanki explaining with fade
-    r "Tu as perdu tous tes points..."
-    r "Game over."
+    scene courtroom_right
+    show ryouzanki explaining
+    with fade
+    r "Cette farce a suffisemment duré Bravewill."
+    show judge with dissolve
+    j "Je suis tout à fait d'accord."
+    j "Cette court déclare l'accusé coupable d'homicide."
+    scene black with dissolve
+    show text "Ce n'est pas possible..." with dissolve
+    $ renpy.pause(2.0)
+    show text "Non... Ce monde... Il..." with dissolve
+    $ renpy.pause(2.0)
+    show text "Il a juste besoin de justice..." with dissolve
+    $ renpy.pause(2.0)
     $ renpy.full_restart()
     
 label start:

@@ -26,6 +26,7 @@ label object1_1_1:
     show ryouzanki normal
     r "Peut être des deux en fait."
     call influence(-10)
+    play music (deposition) fadein 2
     jump dep11
 label object1_1_2:
     # vide mais dispo si besoin
@@ -147,15 +148,205 @@ label object1_1_3:
         r "L'accusation aimerait que cela soit contenu dans la dépostion." 
        
         $ ryou_attack_1 = True
-        
+        play music (deposition) fadein 2
         jump dep11
     else:
         jump object1_1_1
         
 label object1_1_4:
-    # vide mais dispo si besoin # TODO
-    jump object1_1_1
+    if (try_objection==4):
+        show witness_stand:
+            offscreenright
+        show lara worried:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            xalign 0.5
+        show elusia explaining:
+            xalign 0.5
+        show courtroom_right:
+            xalign 1.0 xanchor 0.0
+        show ryouzanki normal:
+            xalign 1.0 xanchor 0.0
+        with None
+        e "Je trouve cela très difficile à croire..."
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+           offscreenleft
+        show courtroom_right:
+            center
+        show ryouzanki normal:
+            center
+        with move
+        r "Et pourriez vous nous éclairer Bravewill ?"
+        show courtroom_left:
+            xalign 0.5
+        show elusia explaining:
+            xalign 0.5
+        show courtroom_right:
+            xalign 1.0 xanchor 0.0
+        show ryouzanki normal:
+            xalign 1.0 xanchor 0.0
+        with move
+        e "Témoin !"
+        e "Affirmez vous que dès son entrée, Mr Provist s'est précipité sur la victime ?"
+        show witness_stand:
+            center
+        show lara worried:
+            center
+        show witness_bar:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+           offscreenleft
+        with move
+        t1 "Oui ?"
+        show witness_stand:
+            offscreenright
+        show lara worried:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia explaining:
+           center
+        with move
+        e "Et affirmez vous aussi qur Mr Provist revenait d'une randonnée en montagne..."
+        e "Sous une pluie torrentielle ?"
+        show witness_stand:
+            center
+        show lara worried:
+            center
+        show witness_bar:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+           offscreenleft
+        with move
+        t1 "Oui mais je ne vois pas en quoi c'est important..."
+        show witness_stand:
+            offscreenright
+        show lara worried:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia objection:
+           center
+        with move
+        e "Ca l'est !"
+        # TODO IMAGEMAP POUR CLIQUER SUR LA CIBLE
+        show elusia explaining
+        e "C'est la preuve que l'une des deux affirmations est un mensonge."
+        e "Si les deux étaient vraies, alors Mr Provist..."
+        show elusia objection
+        e "Aurait laissé des traces de boue jusqu'au balcon !"
+        call influence(+15)
+        jump dep11end
+    else:
+        jump object1_1_1
+
 label object1_1_5:
-    # vide mais dispo si besoin # TODO
-    jump object1_1_1
-    
+    if (try_objection==4):
+        show witness_stand:
+            offscreenright
+        show lara worried:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            xalign 0.5
+        show elusia explaining:
+            xalign 0.5
+        show courtroom_right:
+            xalign 1.0 xanchor 0.0
+        show ryouzanki normal:
+            xalign 1.0 xanchor 0.0
+        with None
+        e "Je trouve cela très difficile à croire..."
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+           offscreenleft
+        show courtroom_right:
+            center
+        show ryouzanki normal:
+            center
+        with move
+        r "Et pourriez vous nous éclairer Bravewill ?"
+        show courtroom_left:
+            xalign 0.5
+        show elusia explaining:
+            xalign 0.5
+        show courtroom_right:
+            xalign 1.0 xanchor 0.0
+        show ryouzanki normal:
+            xalign 1.0 xanchor 0.0
+        with move
+        e "Témoin !"
+        e "Affirmez vous que dès son entrée, Mr Provist s'est précipité sur la victime ?"
+        show witness_stand:
+            center
+        show lara worried:
+            center
+        show witness_bar:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+           offscreenleft
+        with move
+        t1 "Oui ?"
+        show witness_stand:
+            offscreenright
+        show lara worried:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia explaining:
+           center
+        with move
+        e "Et affirmez vous aussi qur Mr Provist revenait d'une randonnée en montagne..."
+        e "Sous une pluie torrentielle ?"
+        show witness_stand:
+            center
+        show lara worried:
+            center
+        show witness_bar:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+           offscreenleft
+        with move
+        t1 "Oui mais je ne vois pas en quoi c'est important..."
+        show witness_stand:
+            offscreenright
+        show lara worried:
+            offscreenright
+        show witness_bar:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia objection:
+           center
+        with move
+        e "Ca l'est !"
+        # TODO IMAGEMAP POUR CLIQUER SUR LA CIBLE
+        show elusia explaining
+        e "C'est la preuve que l'une des deux affirmations est un mensonge."
+        e "Si les deux étaient vraies, alors Mr Provist..."
+        show elusia objection
+        e "Aurait laissé des traces de boue jusqu'au balcon !"
+        call influence(+15)
+        jump dep11end
+    else:
+        jump object1_1_1

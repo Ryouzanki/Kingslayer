@@ -25,7 +25,8 @@ image ryouzanki objection = "medias/sprites/ryouzanki objection.png"
 image ryouzanki explaining = "medias/sprites/ryouzanki explaining.png"
 image ryouzanki normal = "medias/sprites/ryouzanki normal.png"
 image bubble_obj_ryou = "medias/interface/bubble_obj_ryou.png"
-
+image ryouzanki explaining sepia = im.MatrixColor("medias/sprites/ryouzanki explaining.png", 
+        im.matrix.saturation(0.0) * im.matrix.tint(1.0, .94, .76))
 # Voice
 define ryouzanki_obj = "medias/sounds/ryouzanki object.mp3"
 
@@ -110,7 +111,8 @@ image witness_stand = "medias/backgrounds/witness stand.png"
 image witness_bar = "medias/backgrounds/witness stand2.png"
 image waiting = "medias/backgrounds/waiting room.png"
 image judge = "medias/backgrounds/judge.png"
-
+image courtroom_right sepia = im.MatrixColor("medias/backgrounds/courtroom right.png", 
+        im.matrix.saturation(0.0) * im.matrix.tint(1.0, .94, .76))
 # Misc
 image detention_stand = "medias/backgrounds/detention stand.png"
 image detention_bar = "medias/backgrounds/detention stand2.png"
@@ -131,6 +133,8 @@ define intro = "medias/musics/intro.mp3"
 define detention = "medias/musics/detention.mp3"
 define courtroom = "medias/musics/courtroom.mp3"
 define deposition = "medias/musics/deposition.mp3"
+define recession = "medias/musics/pause.mp3"
+define clash = "medias/musics/clash.mp3"
 
 
 ### Sounds
