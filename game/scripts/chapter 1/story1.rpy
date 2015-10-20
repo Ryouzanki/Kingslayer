@@ -908,6 +908,7 @@ label preparatif_int_1:
             jump interro11
     jump preparatif_int_1
 label interro11:
+    stop music fadeout 1.0
     scene judge with fade
     j "Très bien, puisque la défence est prête, je ne vois aucune raison d'attendre."
     
@@ -1013,10 +1014,10 @@ label interro11:
     with move
     alain "Et bien..."
     if choix5:
-        alain "Oui, je l'ai croisé quelques fois"
+        alain "Oui, je l'ai croisé quelques fois."
         alain "Mais on ne s'est jamais adressé la parole."
     else:
-        alain "Non, je ne l'ai jamais vu de ma vie"
+        alain "Non, je ne l'ai jamais vu de ma vie."
         alain "Même maintenant, je ne sais pas à quoi il ressemble."
     alain "Je ne l'ai pas vu en entrant dans la chambre."
     show courtroom_right:
@@ -1076,15 +1077,20 @@ label interro11:
     show ryouzanki explaining
     r "Ce témoignage chante si faux que j'en ai la migraine."
     show ryouzanki normal
+    show courtroom_left:
+        offscreenleft
+    show elusia objection:
+        offscreenleft
     play music clash fadein 1.0
     r "Tout d'abord, l'accusation désire exposer sa version des faits."
     r "Le suspect n'a même pas passé de temps avec sa femme."
-    r "Ces \"vacances\" n'était qu'une pretexte pour l'emmener dans un endroit avec moins de monde."
+    r "Ces \"vacances\" n'était qu'un pretexte pour l'emmener dans un endroit avec moins de monde."
     r "Car il serait ainsi plus aisé d'identifier et d'éliminer l'amant de sa femme."
     show bubble_obj_elu
     play sound elusia_obj
     $ renpy.pause(0.5)
-    scene courtroom_right:
+    hide bubble_obj_elu
+    show courtroom_right:
         offscreenright
     show ryouzanki normal:
         offscreenright
@@ -1092,7 +1098,7 @@ label interro11:
         center
     show elusia objection:
         center
-    with None
+    with move
     e "OBJECTION !"
     show elusia explaining
     e "Mon client n'était pas au courant pour l'adultère !"
@@ -1144,7 +1150,7 @@ label interro11:
         center
     show elusia objection:
         center
-    with None
+    with move
     e "OBJECTION !"
     show elusia explaining
     e "Il l'aimait encore et voulait la laisser se reposer plutot que de se disputer avec !"
@@ -1162,7 +1168,6 @@ label interro11:
             offscreenleft
         with move
         r "OBJECTION !"
-        r "Il voulait juste voir si les souris dansaient quand le chat partait !"
         call influence(-2)
     scene courtroom_right:
         center
@@ -1188,7 +1193,7 @@ label interro11:
     show elusia objection:
         center
     with move
-    if !choix4:
+    if not choix4:
         e "Il n'était pas ivre !"
         show bubble_obj_ryou
         play sound ryouzanki_obj
@@ -1223,8 +1228,8 @@ label interro11:
     r "Le suspect ment aussi sur sa relation avec la victime."
     r "Leur deux noms sont sur la liste du club d'escalade de l'hotel."
     r "autrement dit, ils auraient du passer 5 après midis ensemble."
-    if !choix5:
-        show ryouzanki objectiion
+    if not choix5:
+        show ryouzanki objection
         r "Il est impossible que le suspect n'ait jamais vu la victime !"
         call influence(-9)
         show ryouzanki normal
