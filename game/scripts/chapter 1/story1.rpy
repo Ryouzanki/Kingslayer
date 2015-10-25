@@ -328,7 +328,7 @@ label tuto_object_end:
                 xalign 0.5
             with move
             r "Un accident sur une balustrade d' 1m30 ?"
-            r "Quelqu'un a du \"provoquer\" cet accident..."
+            r "Quelqu'un a dû \"provoquer\" cet accident..."
             show courtroom_left:
                 xalign 0.5
             show elusia down:
@@ -606,7 +606,7 @@ label tuto_object_end:
     envl "Une objection mal placée me ferait perdre de l'influence sur l'issue du procès."
     $ show_infl = True
     envl "L'influence que j'ai sur le procès est indiqué au dessus."
-    envl "Je crois que j'ai tout en tête... C'est partit !"
+    envl "Je crois que j'ai tout en tête... C'est parti !"
 
     scene witness_stand:
         center
@@ -705,10 +705,10 @@ label dep11:
             e "Awawawa..."
             e "La... La défence désire réécouter une nouvelle fois la déposition."
             call influence(-2)
-        "Non, J'ai du rater quelque chose...":
+        "Non, J'ai dû rater quelque chose...":
             scene courtroom_left
             show elusia explaining
-            e "Non, J'ai du rater quelque chose..."
+            e "Non, J'ai dû rater quelque chose..."
             e "Il y a encore quelque chose de suspicieux dans cette déposition."
             e "La défence désire réécouter une nouvelle fois la déposition."
             call influence(-1)
@@ -841,8 +841,8 @@ label preparatif_int_1:
             $ choix1 = False
             e "A propos du témoignage de Lara..."
             e "Est-ce vrai que tu étais ivre ?"
-            alain "Oui. Lara n'a pas arrêter de m'emmerder toute la journée."
-            alain "Je voulais que l'ont parte en vacance ensemble pour se réconcilier."
+            alain "Oui. Lara n'a pas arrêté de m'emmerder toute la journée."
+            alain "Je voulais que l'on parte en vacance ensemble pour se réconcilier."
             alain "Et la pluie est venue pourrir mon dernier petit plaisir."
             alain "Comprends moi, j'avais besoin de décompresser..."
             e "Alain... Je ne suis pas là pour te juger..."
@@ -858,7 +858,7 @@ label preparatif_int_1:
             $ choix2 = False
             e "La victime..."
             e "Est-ce que tu la connaissais ? Au moins de vue ?"
-            alain "J'ai du la croiser une ou deux fois sans lui parler."
+            alain "J'ai dû la croiser une ou deux fois sans lui parler."
             menu:
                 "Tu peux le dire...":
                     e "Tu peux le dire..."
@@ -885,7 +885,7 @@ label preparatif_int_1:
             menu:
                 "Insister.":
                     e "Alain... Je dois savoir."
-                    alain "Je l'aimais. Je suis partit plus loin sur le versant."
+                    alain "Je l'aimais. Je suis parti plus loin sur le versant."
                     alain "Je voulais qu'elle me voit sous la pluie la regarder au loin."
                     alain "Mais en regardant dans notre chambre, j'ai vu deux personnes."
                     e "Alain. C'est très important ce que tu viens de me dire."
@@ -930,7 +930,7 @@ label interro11:
     
     call encounter
     play music (deposition) fadein 2
-    alain "Je suis partit en vacance avec ma femme dans l'espoir que l'on s'aime à nouveau."
+    alain "Je suis parti en vacance avec ma femme dans l'espoir que l'on s'aime à nouveau."
     
     show courtroom_right:
         center
@@ -983,9 +983,9 @@ label interro11:
     alain "Heu... Je..."
     if choix4:
         alain "Oui, j'ai bu avant de rentrer."
-        alain "Une bonne heure au bar de l'hotel."
+        alain "Une bonne heure au bar de l'hôtel."
     else:
-        alain "Non, juste un petit verre au bar de l'hotel."
+        alain "Non, juste un petit verre au bar de l'hôtel."
         alain "Pas assez pour être ivre."
         
     show courtroom_right:
@@ -1084,7 +1084,7 @@ label interro11:
     play music clash fadein 1.0
     r "Tout d'abord, l'accusation désire exposer sa version des faits."
     r "Le suspect n'a même pas passé de temps avec sa femme."
-    r "Ces \"vacances\" n'était qu'un pretexte pour l'emmener dans un endroit avec moins de monde."
+    r "Ces \"vacances\" n'étaient qu'un pretexte pour l'emmener dans un endroit avec moins de monde."
     r "Car il serait ainsi plus aisé d'identifier et d'éliminer l'amant de sa femme."
     show bubble_obj_elu
     play sound elusia_obj
@@ -1226,8 +1226,8 @@ label interro11:
         offscreenleft
     with move
     r "Le suspect ment aussi sur sa relation avec la victime."
-    r "Leur deux noms sont sur la liste du club d'escalade de l'hotel."
-    r "autrement dit, ils auraient du passer 5 après midis ensemble."
+    r "Leurs deux noms sont sur la liste du club d'escalade de l'hôtel."
+    r "Autrement dit, ils auraient dû passer 5 après-midis ensemble."
     if not choix5:
         show ryouzanki objection
         r "Il est impossible que le suspect n'ait jamais vu la victime !"

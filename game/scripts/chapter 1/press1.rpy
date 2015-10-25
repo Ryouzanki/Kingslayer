@@ -163,7 +163,7 @@ label press11:
             offscreenleft
         with move
         t1 "Si ma mémoire est bonne..."
-        t1 "Il était partit depuis deux heures et il pleuvait toujours autant."
+        t1 "Il était parti depuis deux heures et il pleuvait toujours autant."
         t1 "Il devait être quelque chose comme 22h."
         show witness_stand:
             offscreenright
@@ -290,16 +290,16 @@ label press11:
                 t1 "Du genre \"PRAISE THE SUN\", tout ça, tout ça..."
             "Qu'a fait la victime ?":
                 e "Qu'a fait la victime ?"
-                show courtroom_right:
-                    offscreenleft
-                show elusia explaining:
-                    offscreenleft
                 show witness_stand:
                       center
                 show lara hit:
                    center
                 show witness_bar:
                        center
+                show courtroom_left:
+                           offscreenleft
+                show elusia normal:
+                          offscreenleft
                 with move
                 t1 "Ca s'est passé si vite..."
                 t1 "Mr Goland reculait en demandant à Alain de reprendre son calme pour lui expliquer la situation."
