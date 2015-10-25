@@ -269,7 +269,7 @@ label proc1:
     r "La victime était un brillant ingénieur en aéronautique célibataire vivant seul."
     r "Le rapport d'autopsie confirme que la mort est bien due à une chute du 4ème étage."
     r "Tous deux étaient logés dans le même hôtel de vacance Heaven Fall, dans des chambres adjacentes."
-    r "Lorsque Mr Berthold a été poussé de son balcon, les vacanciers de la chambre du dessous sont montés pour coincer le coupable."
+    r "Lorsque Mr Goland a été poussé de son balcon, les vacanciers de la chambre du dessous sont montés pour coincer le coupable."
     r "Mr Provist ici présent était l'unique personne à cet étage d'où son arrestation."
     
     scene judge
@@ -448,7 +448,7 @@ label tuto_object_end:
     show witness_stand:
         xalign 0.5
     show lara normal:
-        xalign 0.5
+        center
     show witness_bar:
         xalign 0.5
     show courtroom_right:
@@ -595,7 +595,7 @@ label tuto_object_end:
     envl "Mais maintenant, je peux le faire à tout moment en cliquant sur l'onglet preuve en haut à gauche de l'écran."
     envl "Il me permet de regarder de plus près les preuves quand bon me semble..."
     envl "Lara... Elle ment probablement quelque part... Ou alors Alain serait un..."
-    envl "Non, je ne dois pas y penser. Je dois \ntrouver la brèche dans ce témoignage \net enfoncer une preuvce dedans !"
+    envl "Non, je ne dois pas y penser. Je dois \ntrouver la brèche dans ce témoignage \net enfoncer une preuve dedans !"
     nvl clear
     envl "Aller ma grande ! Montre leur que tu n'as pas passé toutes ses années sur les bancs de la fac pour rien !"
     envl "Il faut reprendre le témoignage à zéro. Je pourrais demander des précisions avec le bouton sur la droite de l'écran."
@@ -863,7 +863,6 @@ label preparatif_int_1:
                 "Tu peux le dire...":
                     e "Tu peux le dire..."
                     e "Je ne pense pas que cela nous soit préjudiciable."
-                    alain "D'accord."
                 "Dis que tu ne l'as jamais vu.":
                     $ choix5 = False
                     e "Dis que tu ne l'as jamais vu."
