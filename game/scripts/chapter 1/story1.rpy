@@ -7,7 +7,7 @@ screen tuto_object:
 label chap1:
     
     $ ryou_attack_1 = False  # confirmation victime en caleçon
-    $ ryou_attack_2 = False
+    $ ryou_attack_2 = False  # confirmation mauvais lieu du crime
     $ ryou_attack_3 = False
     
     $ inf = 50
@@ -667,13 +667,13 @@ label dep11:
     
     scene judge with fade
     
-    j "Le témoignage convient-il à la défence ?"
+    j "Le témoignage convient-il à la défense ?"
     
     scene courtroom_left
     show elusia normal
     
     menu:
-        "La défence n'a rien à répondre à cela.":
+        "La défense n'a rien à répondre à cela.":
             scene courtroom_left:
                 xalign 0.5
             show courtroom_right:
@@ -681,7 +681,7 @@ label dep11:
             show ryouzanki normal:
                 xalign 1.0 xanchor 0.0
             show elusia normal
-            e "La défence n'a rien à répondre à cela."
+            e "La défense n'a rien à répondre à cela."
             show courtroom_left:
                 xalign 0.0 xanchor 1.0
             show elusia normal:
@@ -703,15 +703,15 @@ label dep11:
                  xalign 1.0 xanchor 0.0
             with move
             e "Awawawa..."
-            e "La... La défence désire réécouter une nouvelle fois la déposition."
-            call influence(-2)
+            e "La... La défense désire réécouter une nouvelle fois la déposition."
+            call influence(-5)
         "Non, J'ai dû rater quelque chose...":
             scene courtroom_left
             show elusia explaining
             e "Non, J'ai dû rater quelque chose..."
             e "Il y a encore quelque chose de suspicieux dans cette déposition."
-            e "La défence désire réécouter une nouvelle fois la déposition."
-            call influence(-1)
+            e "La défense désire réécouter une nouvelle fois la déposition."
+            call influence(-2)
             
     jump dep11
 
@@ -729,7 +729,7 @@ label dep11end:
     show elusia normal:
         center
     with dissolve
-    e "La défence pense que l'information suivante a été faussée :"
+    e "La défense pense que l'information suivante a été faussée :"
     menu:
         "Le lieu du crime.":
             e "Le lieu du crime, votre honneur."
@@ -738,7 +738,7 @@ label dep11end:
             e "L'heure du crime, votre honneur."
             
     show elusia explaining
-    e "Si comme le dit Mme Provist, son mari s'est précipité et tué Mr Goland dès son retour"
+    e "Si comme le dit Mme Provist, son mari s'est précipité et tué Mr Goland dès son retour..."
     e "Il ne se serait pas arrêté au milieu de la chambre pour aller retirer ses chaussures."
     show courtroom_right:
         center
@@ -753,7 +753,7 @@ label dep11end:
     show ryouzanki normal
     r "L'accusation aimerait appeler Mr Provist à la barre afin d'écouter sa version des faits."
     show judge with dissolve
-    j "C'est soudain. La défence désire-t'elle quelques minutes afin de préparer Mr Provist ?"
+    j "C'est soudain. La défense désire-t'elle quelques minutes afin de préparer Mr Provist ?"
     show courtroom_left at center
     show elusia normal at center
     hide judge with dissolve
@@ -768,7 +768,7 @@ label dep11end:
             show elusia explaining
             call influence(5)
             e "Ce ne sera pas nécessaire."
-            e "La défence est prête et l'innocence de mon client le protègera."
+            e "La défense est prête et l'innocence de mon client le protègera."
             show courtroom_right:
                 center
             show ryouzanki explaining:
@@ -909,7 +909,7 @@ label preparatif_int_1:
 label interro11:
     stop music fadeout 1.0
     scene judge with fade
-    j "Très bien, puisque la défence est prête, je ne vois aucune raison d'attendre."
+    j "Très bien, puisque la défense est prête, je ne vois aucune raison d'attendre."
     
     scene courtroom_right:
         offscreenright
@@ -1075,15 +1075,29 @@ label interro11:
     r "La question serait plutôt ce qui ne me dérange pas."
     show ryouzanki explaining
     r "Ce témoignage chante si faux que j'en ai la migraine."
+    r "Tout d'abord, l'accusation désire exposer sa version des faits."
+#    scene courtroom_right sepia
+#    show ryouzanki explaining sepia
+#    with dissolve
+#    nvl clear
+#    show elusia_grey
+#    envl "Il semblerait que la défense d'Alain n'était pas très satisfaisante..."
+#    envl "Le procureur a probablement sa théorie."
+#    envl "Je ne dois pas le laisser la présenter tranquillement ou c'en est fini de nous !"
+#    envl "Des objections bien placées sur les failles de sa théorie devraient nous faire gagner un peu d'influence..."
+#    hide elusia_grey with dissolve
     show ryouzanki normal
+    show courtroom_right
     show courtroom_left:
         offscreenleft
     show elusia objection:
         offscreenleft
     play music clash fadein 1.0
-    r "Tout d'abord, l'accusation désire exposer sa version des faits."
+#    $ witness_statement = 1
     r "Le suspect n'a même pas passé de temps avec sa femme."
+#    $ witness_statement = 
     r "Ces \"vacances\" n'étaient qu'un pretexte pour l'emmener dans un endroit avec moins de monde."
+#    $ witness_statement = 
     r "Car il serait ainsi plus aisé d'identifier et d'éliminer l'amant de sa femme."
     show bubble_obj_elu
     play sound elusia_obj
@@ -1117,7 +1131,7 @@ label interro11:
         with move
         r "OBJECTION !"
         r "Le suspect a lui même avoué qu'il espionnait sa femme !"
-        call influence(-3)
+        call influence(-4)
     else:
         show bubble_obj_ryou
         play sound ryouzanki_obj
@@ -1167,7 +1181,7 @@ label interro11:
             offscreenleft
         with move
         r "OBJECTION !"
-        call influence(-2)
+        call influence(-3)
     scene courtroom_right:
         center
     show ryouzanki normal:
@@ -1208,13 +1222,14 @@ label interro11:
         with move
         r "OBJECTION !"
         r "Son taux d'alcolémie relevé à son arrestation le prouve !"
-        call influence(-7)
+        call influence(-8)
     else:
         e "Il noyait son chagrin d'amour !"
         e "Boire et tuer une personne sont indépendants !"
         show elusia explaining
-        e "La défence aimerait que l'accusation cesse ses conjectures frauduleuses."
+        e "La défense aimerait que l'accusation cesse ses conjectures frauduleuses."
         call influence(10)
+
     show courtroom_right:
         center
     show ryouzanki normal:
@@ -1224,13 +1239,90 @@ label interro11:
     show elusia explaining:
         offscreenleft
     with move
+    r "En entrant dans la chambre, il a tout de suite compris ce qu'il se passait."
+    r "C'est pourquoi il a couru sur la victime avec des intentions belliqueuses."
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with move
+    e "OBJECTION !"
+    e "On ne peut rien déduire de deux personnes en train de prendre un verre !"
+    if ryou_attack_1:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia objection:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        show ryouzanki explaining
+        r "Prendre un verre ?"
+        show ryouzanki objection
+        r "La défense a prouvé elle même que la victime était en sous-vêtements au moment des faits !"
+        scene courtroom_left
+        show elusia down
+        with hpunch
+        e "Awawawa..."
+        call influence(-12)
+    elif choix6:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia objection:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        show ryouzanki explaining
+        r "Dois-je rappeler que le suspect les espionnait ?"
+        show ryouzanki objection
+        r "Une fois l'adultère confirmé, il est rentré pour perpétrer son meurtre !"
+        show courtroom_right:
+            offscreenright
+        show ryouzanki normal:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia down:
+            center
+        with hpunch
+        call influence(-6)
+        e "Awawawa..."
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show courtroom_left:
+        offscreenleft
+    show elusia:
+        offscreenleft
+    with move
     r "Le suspect ment aussi sur sa relation avec la victime."
     r "Leurs deux noms sont sur la liste du club d'escalade de l'hôtel."
     r "Autrement dit, ils auraient dû passer 5 après-midis ensemble."
     if not choix5:
         show ryouzanki objection
         r "Il est impossible que le suspect n'ait jamais vu la victime !"
-        call influence(-9)
+        call influence(-10)
         show ryouzanki normal
     else:
         r "Ils auraient très bien pu faire connaissance a ce moment là !"
@@ -1263,8 +1355,61 @@ label interro11:
     show ryouzanki objection
     r "Il se trouve que j'en ai !"
     r "La police a relevé des empreintes digitales de Mr Provist sur la poignée de porte de la chambre de la victime !"
-    scene courtroom_left
-    show elusia down
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia down:
+        center
     with hpunch
     e "Awawawa... Comment est-ce possible ?!"
+    show elusia normal
+    e "(Un instant... Qu'est ce que ça veut dire ?)"
+    menu:
+        "Ce n'est pas le lieu du crime !":
+            show elusia objection
+            e "Ce n'est pas le lieu du crime !"
+            e "Cette preuve n'est pas pertinente !"
+            if ryou_attack_2:
+                show bubble_obj_ryou
+                play sound ryouzanki_obj
+                $ renpy.pause(0.5)
+                scene courtroom_right:
+                    center
+                show ryouzanki objection:
+                    center
+                show courtroom_left:
+                    offscreenleft
+                show elusia objection:
+                    offscreenleft
+                with move
+                r "OBJECTION !"
+                r "Elle l'est !"
+                r "La défense a prouvé précédemment que la scène du crime n'était pas la chambre 404 !"
+                show ryouzanki explaining
+                r "Cette preuve indique que la scène du crime est la chambre d'à côté."
+                r "Et que le suspect y était."
+                call influence(-10)
+            else:
+                scene courtroom_right:
+                    center
+                show ryouzanki normal:
+                    center
+                show courtroom_left:
+                    offscreenleft
+                show elusia objection:
+                    offscreenleft
+                with move
+                r "Elle prouve quand même que le suspect et la victime se connaissaient."
+                r "De plus, l'accusation aimerait prendre en considération la possibilité que le lieu du crime soit erroné."
+                call influence(3)
+        "...":
+            show elusia down
+            e "(C'est pas bon du tout...)"
+    scene judge
+    j "Si l'on admet que le lieu du crime soit la chambre de la victime..."
+    j "Qu'est-ce qui change exactement ?"
+    
     return
