@@ -34,20 +34,30 @@ init -5 python:
     
 label influence(modificateur):
 
+#########   TROP LENT POUR ANDROID
+#
+#    if (modificateur < 0):
+#        $ count = difficulty * modificateur
+#        while count < 0:
+#            $ inf = inf - 1
+#            $ count = count + 1
+#            play sound "medias/sounds/gauge.wav"
+#            pause 0.01
+#    else:
+#        $ count = modificateur
+#        while count > 0:
+#            $ inf = inf + 1
+#            $ count = count - 1
+#            play sound "medias/sounds/gauge.wav"
+#            pause 0.01
+#
+#######    VERSION LIGHT            
     if (modificateur < 0):
-        $ count = difficulty * modificateur
-        while count < 0:
-            $ inf = inf - 1
-            $ count = count + 1
-            play sound "medias/sounds/gauge.wav"
-            pause 0.01
+        $ inf = inf + (difficulty * modificateur)
+
     else:
-        $ count = modificateur
-        while count > 0:
-            $ inf = inf + 1
-            $ count = count - 1
-            play sound "medias/sounds/gauge.wav"
-            pause 0.01
+        $ inf = inf + modificateur
+#######    VERSION LIGHT END
     
     if (inf > 100):
         $ inf = 100
