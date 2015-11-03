@@ -25,10 +25,12 @@ image ryouzanki objection = "medias/sprites/ryouzanki objection.png"
 image ryouzanki explaining = "medias/sprites/ryouzanki explaining.png"
 image ryouzanki normal = "medias/sprites/ryouzanki normal.png"
 image bubble_obj_ryou = "medias/interface/bubble_obj_ryou.png"
+image bubble_sil_ryou = "medias/interface/bubble_sil_ryou.png"
 image ryouzanki explaining sepia = im.MatrixColor("medias/sprites/ryouzanki explaining.png", 
         im.matrix.saturation(0.0) * im.matrix.tint(1.0, .94, .76))
 # Voice
 define ryouzanki_obj = "medias/sounds/ryouzanki object.mp3"
+define ryouzanki_sil = "medias/sounds/silence.mp3"
 
 ## Alice Drezall
 image alice normal = im.Composite((200, 520),
