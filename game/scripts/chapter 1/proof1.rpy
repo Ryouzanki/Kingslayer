@@ -1,3 +1,7 @@
+screen testimony_scre12:
+
+    $ ui.imagebutton("medias/interface/objection.png", "medias/interface/objection.png", yalign = 0.5, clicked=[Jump("aiguillage12")])
+    
 screen testimony_scre11:
 
     $ ui.imagebutton("medias/interface/objection.png", "medias/interface/objection.png", yalign = 0.5, clicked=[Jump("proof_selector11")])
@@ -25,6 +29,22 @@ screen proof_select11:
         $ ui.imagebutton("medias/interface/MA4.png", "medias/interface/MA4.png",  clicked=[SetVariable("try_objection",4),Jump("aiguillage11")])
         $ ui.imagebutton("medias/interface/return.png", "medias/interface/return.png",  clicked=Jump("dep11"))
         
+label aiguillage12:
+    
+    if (witness_statement == 1):
+        jump object1_2_1
+    elif (witness_statement == 2):
+        jump object1_2_2
+    elif (witness_statement == 3):
+        jump object1_2_3
+    elif (witness_statement == 4):
+        jump object1_2_4
+    elif (witness_statement == 5):
+        jump object1_2_5
+    else:
+        "ERREUR AIGUILLAGE OBJECTION 2"
+      
+      
 label aiguillage11:
     
     hide CG_thinking

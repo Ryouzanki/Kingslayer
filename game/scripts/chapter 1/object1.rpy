@@ -350,3 +350,236 @@ label object1_1_5:
         jump dep11end
     else:
         jump object1_1_1
+        
+label object1_2_1:
+    hide screen testimony_scre12
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    hide bubble_obj_elu
+    show courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with move
+    e "OBJECTION !"
+    show elusia explaining
+    e "Mon client n'était pas au courant pour l'adultère !"
+    
+    if choix6:
+        show bubble_sil_ryou
+        play sound ryouzanki_sil
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        r "SILENCE !"
+        r "Le suspect a lui même avoué qu'il espionnait sa femme !"
+        call influence(-10)
+    else:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        r "Vous n'avez aucune preuve de ce que vous avancez."
+        r "Personne n'avouerait une telle chose !"
+    jump retour121
+    
+label object1_2_2:
+    hide screen testimony_scre12
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with move
+    e "OBJECTION !"
+    show elusia explaining
+    e "Il l'aimait encore et voulait la laisser se reposer plutot que de se disputer avec !"
+    if choix6:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia explaining:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        call influence(-3)
+    scene courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show courtroom_left:
+        offscreenleft
+    show elusia explaining:
+        offscreenleft
+    with move
+    r "Il voulait juste voir si les souris dansaient quand le chat partait !"
+    jump retour122
+label object1_2_3:
+    hide screen testimony_scre12
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with move
+    if not choix4:
+        e "Il n'était pas ivre !"
+        show bubble_sil_ryou
+        play sound ryouzanki_sil
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia objection:
+            offscreenleft
+        with move
+        r "SILENCE !"
+        r "Son taux d'alcolémie relevé à son arrestation le prouve !"
+        call influence(-10)
+    else:
+        e "Il noyait son chagrin d'amour !"
+        e "Boire et tuer une personne sont indépendants !"
+        show elusia explaining
+        e "La défense aimerait que l'accusation cesse ses conjectures frauduleuses."
+        call influence(10)
+    jump retour123
+    
+label object1_2_4:
+    hide screen testimony_scre12
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with move
+    e "OBJECTION !"
+    e "On ne peut rien déduire de deux personnes en train de prendre un verre !"
+    if ryou_attack_1:
+        show bubble_sil_ryou
+        play sound ryouzanki_sil
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia objection:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        show ryouzanki explaining
+        r "Prendre un verre ?"
+        show ryouzanki objection
+        r "La défense a prouvé elle même que la victime était en sous-vêtements au moment des faits !"
+        scene courtroom_left
+        show elusia down
+        with hpunch
+        e "Awawawa..."
+        call influence(-12)
+    elif choix6:
+        show bubble_obj_ryou
+        play sound ryouzanki_obj
+        $ renpy.pause(0.5)
+        scene courtroom_right:
+            center
+        show ryouzanki objection:
+            center
+        show courtroom_left:
+            offscreenleft
+        show elusia objection:
+            offscreenleft
+        with move
+        r "OBJECTION !"
+        show ryouzanki explaining
+        r "Dois-je rappeler que le suspect les espionnait ?"
+        show ryouzanki objection
+        r "Une fois l'adultère confirmé, il est rentré pour perpétrer son meurtre !"
+        show courtroom_right:
+            offscreenright
+        show ryouzanki normal:
+            offscreenright
+        show courtroom_left:
+            center
+        show elusia down:
+            center
+        with hpunch
+        call influence(-6)
+        e "Awawawa..."
+    jump retour124
+    
+label object1_2_5:
+    hide screen testimony_scre12
+    show bubble_obj_elu
+    play sound elusia_obj
+    $ renpy.pause(0.5)
+    scene courtroom_right:
+        offscreenright
+    show ryouzanki normal:
+        offscreenright
+    show courtroom_left:
+        center
+    show elusia objection:
+        center
+    with move
+    e "L'accusation ne cesse de parler au conditionnel !"
+    call influence(2)
+    show courtroom_right:
+        center
+    show ryouzanki normal:
+        center
+    show courtroom_left:
+        offscreenleft
+    show elusia explaining:
+        offscreenleft
+    with move
+    jump retour125
+    
